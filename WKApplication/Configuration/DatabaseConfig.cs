@@ -2,10 +2,6 @@
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
-using Microsoft.OpenApi.Models;
-using System;
-using System.IO;
-using System.Reflection;
 using WKData;
 
 namespace WKWebApi.Configuration
@@ -14,8 +10,8 @@ namespace WKWebApi.Configuration
     {
         public static void AddDataBaseConfiguration(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<WKContext>(options => options.UseMySql(configuration.GetConnectionString("ProdutosWKContext"), builder =>
-                builder.MigrationsAssembly("ProdutosWK")));
+            services.AddDbContext<WKContext>(options => options.UseMySql(configuration.GetConnectionString("WKContext"), builder =>
+                builder.MigrationsAssembly("WKData")));
         }
 
         public static void UseDataBaseConfiguration(this IApplicationBuilder app)

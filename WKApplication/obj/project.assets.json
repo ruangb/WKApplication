@@ -1979,6 +1979,8 @@
         "dependencies": {
           "EntityFramework": "6.4.4",
           "Microsoft.EntityFrameworkCore": "2.1.1",
+          "Microsoft.EntityFrameworkCore.Relational": "2.1.1",
+          "Pomelo.EntityFrameworkCore.MySql": "2.1.1",
           "WKDomain": "1.0.0"
         },
         "compile": {
