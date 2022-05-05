@@ -1,0 +1,13 @@
+C:\Users\Ruan\source\repos\WKManager\bin\Debug\netcoreapp3.1\WKManager.deps.json
+C:\Users\Ruan\source\repos\WKManager\bin\Debug\netcoreapp3.1\WKManager.dll
+C:\Users\Ruan\source\repos\WKManager\bin\Debug\netcoreapp3.1\WKManager.pdb
+C:\Users\Ruan\source\repos\WKManager\bin\Debug\netcoreapp3.1\WKDomain.dll
+C:\Users\Ruan\source\repos\WKManager\bin\Debug\netcoreapp3.1\WKDomain.pdb
+C:\Users\Ruan\source\repos\WKManager\obj\Debug\netcoreapp3.1\WKManager.csproj.AssemblyReference.cache
+C:\Users\Ruan\source\repos\WKManager\obj\Debug\netcoreapp3.1\WKManager.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ruan\source\repos\WKManager\obj\Debug\netcoreapp3.1\WKManager.AssemblyInfoInputs.cache
+C:\Users\Ruan\source\repos\WKManager\obj\Debug\netcoreapp3.1\WKManager.AssemblyInfo.cs
+C:\Users\Ruan\source\repos\WKManager\obj\Debug\netcoreapp3.1\WKManager.csproj.CoreCompileInputs.cache
+C:\Users\Ruan\source\repos\WKManager\obj\Debug\netcoreapp3.1\WKManager.csproj.CopyComplete
+C:\Users\Ruan\source\repos\WKManager\obj\Debug\netcoreapp3.1\WKManager.dll
+C:\Users\Ruan\source\repos\WKManager\obj\Debug\netcoreapp3.1\WKManager.pdb
