@@ -7,3 +7,12 @@ C:\Users\Ruan\source\repos\WKDomain\obj\Debug\netcoreapp3.1\WKDomain.AssemblyInf
 C:\Users\Ruan\source\repos\WKDomain\obj\Debug\netcoreapp3.1\WKDomain.csproj.CoreCompileInputs.cache
 C:\Users\Ruan\source\repos\WKDomain\obj\Debug\netcoreapp3.1\WKDomain.dll
 C:\Users\Ruan\source\repos\WKDomain\obj\Debug\netcoreapp3.1\WKDomain.pdb
+C:\Users\Ruan\source\repos\WKApplication\WKDomain\bin\Debug\netcoreapp3.1\WKDomain.deps.json
+C:\Users\Ruan\source\repos\WKApplication\WKDomain\bin\Debug\netcoreapp3.1\WKDomain.dll
+C:\Users\Ruan\source\repos\WKApplication\WKDomain\bin\Debug\netcoreapp3.1\WKDomain.pdb
+C:\Users\Ruan\source\repos\WKApplication\WKDomain\obj\Debug\netcoreapp3.1\WKDomain.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Ruan\source\repos\WKApplication\WKDomain\obj\Debug\netcoreapp3.1\WKDomain.AssemblyInfoInputs.cache
+C:\Users\Ruan\source\repos\WKApplication\WKDomain\obj\Debug\netcoreapp3.1\WKDomain.AssemblyInfo.cs
+C:\Users\Ruan\source\repos\WKApplication\WKDomain\obj\Debug\netcoreapp3.1\WKDomain.csproj.CoreCompileInputs.cache
+C:\Users\Ruan\source\repos\WKApplication\WKDomain\obj\Debug\netcoreapp3.1\WKDomain.dll
+C:\Users\Ruan\source\repos\WKApplication\WKDomain\obj\Debug\netcoreapp3.1\WKDomain.pdb

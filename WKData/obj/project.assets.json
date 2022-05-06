@@ -2,6 +2,18 @@
   "version": 3,
   "targets": {
     ".NETCoreApp,Version=v3.1": {
+      "AutoMapper/11.0.1": {
+        "type": "package",
+        "dependencies": {
+          "Microsoft.CSharp": "4.7.0"
+        },
+        "compile": {
+          "lib/netstandard2.1/AutoMapper.dll": {}
+        },
+        "runtime": {
+          "lib/netstandard2.1/AutoMapper.dll": {}
+        }
+      },
       "EntityFramework/6.4.4": {
         "type": "package",
         "dependencies": {
@@ -1899,10 +1911,39 @@
         "runtime": {
           "bin/placeholder/WKDomain.dll": {}
         }
+      },
+      "WKManager/1.0.0": {
+        "type": "project",
+        "framework": ".NETCoreApp,Version=v3.1",
+        "dependencies": {
+          "AutoMapper": "11.0.1",
+          "WKDomain": "1.0.0"
+        },
+        "compile": {
+          "bin/placeholder/WKManager.dll": {}
+        },
+        "runtime": {
+          "bin/placeholder/WKManager.dll": {}
+        }
       }
     }
   },
   "libraries": {
+    "AutoMapper/11.0.1": {
+      "sha512": "WIadGC1pIwbnyTubvI577p3F++Bsj9q2Q3OaAc1I0QS+JhupN1xkdrPBhI9bPIeg63zM81tZplUNYkqU1HE5jQ==",
+      "type": "package",
+      "path": "automapper/11.0.1",
+      "files": [
+        ".nupkg.metadata",
+        ".signature.p7s",
+        "README.md",
+        "automapper.11.0.1.nupkg.sha512",
+        "automapper.nuspec",
+        "icon.png",
+        "lib/netstandard2.1/AutoMapper.dll",
+        "lib/netstandard2.1/AutoMapper.xml"
+      ]
+    },
     "EntityFramework/6.4.4": {
       "sha512": "yj1+/4tci7Panu3jKDHYizxwVm0Jvm7b7m057b5h4u8NUHGCR8WIWirBTw+8EptRffwftIWPBeIRGNKD1ewEMQ==",
       "type": "package",
@@ -6562,6 +6603,11 @@
       "type": "project",
       "path": "../WKDomain/WKDomain.csproj",
       "msbuildProject": "../WKDomain/WKDomain.csproj"
+    },
+    "WKManager/1.0.0": {
+      "type": "project",
+      "path": "../WKManager/WKManager.csproj",
+      "msbuildProject": "../WKManager/WKManager.csproj"
     }
   },
   "projectFileDependencyGroups": {
@@ -6571,7 +6617,8 @@
       "Microsoft.EntityFrameworkCore.Relational >= 2.1.1",
       "Microsoft.EntityFrameworkCore.Tools >= 2.1.1",
       "Pomelo.EntityFrameworkCore.MySql >= 2.1.1",
-      "WKDomain >= 1.0.0"
+      "WKDomain >= 1.0.0",
+      "WKManager >= 1.0.0"
     ]
   },
   "packageFolders": {
@@ -6610,6 +6657,9 @@
           "projectReferences": {
             "C:\\Users\\Ruan\\source\\repos\\WKApplication\\WKDomain\\WKDomain.csproj": {
               "projectPath": "C:\\Users\\Ruan\\source\\repos\\WKApplication\\WKDomain\\WKDomain.csproj"
+            },
+            "C:\\Users\\Ruan\\source\\repos\\WKApplication\\WKManager\\WKManager.csproj": {
+              "projectPath": "C:\\Users\\Ruan\\source\\repos\\WKApplication\\WKManager\\WKManager.csproj"
             }
           }
         }

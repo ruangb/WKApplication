@@ -122,6 +122,9 @@
             "projectReferences": {
               "C:\\Users\\Ruan\\source\\repos\\WKApplication\\WKDomain\\WKDomain.csproj": {
                 "projectPath": "C:\\Users\\Ruan\\source\\repos\\WKApplication\\WKDomain\\WKDomain.csproj"
+              },
+              "C:\\Users\\Ruan\\source\\repos\\WKApplication\\WKManager\\WKManager.csproj": {
+                "projectPath": "C:\\Users\\Ruan\\source\\repos\\WKApplication\\WKManager\\WKManager.csproj"
               }
             }
           }

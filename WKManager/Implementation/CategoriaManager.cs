@@ -21,7 +21,7 @@ namespace WKManager.Implementation
 
         public async Task<IEnumerable<Categoria>> GetCategoriasAsync()
         {
-            return mapper.Map<IEnumerable<Categoria>>(await CategoriaRepository.GetCategoriasAsync());
+            return await CategoriaRepository.GetCategoriasAsync();
         }
 
         public async Task<Categoria> GetCategoriaAsync(int id)

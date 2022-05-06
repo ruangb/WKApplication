@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "uWIP0G45s3xyX+4qRt5KEgvvRq08o3iemMzroweeQDTT2sZxkyY7jMtXRpfn4gXaru52ezRcfjVBsYtjvz8aZw==",
+  "dgSpecHash": "tMEJ9Gh4wNb9WryJ+xY5dEhycDSFqApqS6yujdXdTZpzLDfuZuxF4UZT/fvbvTlRTFosHujXZHfDmM6ny9OW/w==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ruan\\source\\repos\\WKApplication\\WKData\\WKData.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Ruan\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
     "C:\\Users\\Ruan\\.nuget\\packages\\entityframework\\6.4.4\\entityframework.6.4.4.nupkg.sha512",
     "C:\\Users\\Ruan\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
     "C:\\Users\\Ruan\\.nuget\\packages\\microsoft.entityframeworkcore\\2.1.1\\microsoft.entityframeworkcore.2.1.1.nupkg.sha512",

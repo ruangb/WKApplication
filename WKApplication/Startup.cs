@@ -4,6 +4,10 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using WKData;
+using WKData.Repositories;
+using WKManager.Implementation;
+using WKManager.Interfaces.Managers;
+using WKManager.Interfaces.Repositories;
 using WKWebApi.Configuration;
 
 namespace WKWebAPI
@@ -23,6 +27,12 @@ namespace WKWebAPI
             services.AddControllers();
             services.AddSwaggerConfiguration();
             services.AddDataBaseConfiguration(Configuration);
+
+            services.AddScoped<IProdutoRepository, ProdutoRepository>();
+            services.AddScoped<ICategoriaRepository, CategoriaRepository>();
+
+            services.AddScoped<IProdutoManager, ProdutoManager>();
+            services.AddScoped<ICategoriaManager, CategoriaManager>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

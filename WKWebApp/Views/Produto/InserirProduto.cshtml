@@ -1,0 +1,63 @@
+﻿@model WKDomain.Models.Produto
+
+@{
+    ViewData["Title"] = "Cadastrar novo Produto";
+}
+
+<br />
+
+<h3>@ViewData["Title"]</h3>
+
+@if (TempData["$AlertMessage$"] != null)
+{
+    <div class="text-center text-success">
+        @TempData["$AlertMessage$"]
+    </div>
+}
+
+<hr />
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+        <form asp-action="InserirProduto" class="form-group-sm">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Nome" class="control-label"></label>
+                <input asp-for="Nome" class="form-control w40" />
+                <span asp-validation-for="Nome" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Preco" class="control-label"></label>
+                <input asp-for="Preco" class="form-control w40" />
+                <span asp-validation-for="Preco" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Categoria" class="control-label"></label>
+                <select asp-for="Categoria" class="form-control w50" asp-items="@new SelectList(ViewBag.Categorias as SelectList)">
+                    <option selected="selected" value="">Selecione uma opção</option>
+                </select>
+                <span asp-validation-for="Categoria" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Salvar" class="btn btn-default" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar para a lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        $.validator.methods.range = function (value, element, param) {
+            var globalizedValue = value.replace(",", ".");
+            return this.optional(element) || (globalizedValue >= param[0] && globalizedValue <= param[1]);
+        }
+        $.validator.methods.number = function (value, element) {
+            return this.optional(element) || /-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/.test(value);
+        }
+    </script>
+}
