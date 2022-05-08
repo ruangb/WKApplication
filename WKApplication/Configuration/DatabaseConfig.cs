@@ -10,7 +10,7 @@ namespace WKWebApi.Configuration
     {
         public static void AddDataBaseConfiguration(this IServiceCollection services, IConfiguration configuration)
         {
-            services.AddDbContext<WKContext>(options => options.UseMySql(configuration.GetConnectionString("WKContext"), builder =>
+            services.AddDbContext<WKContext>(options => options.UseMySql(configuration.GetConnectionString("WKConnection"), builder =>
                 builder.MigrationsAssembly("WKData")));
         }
 

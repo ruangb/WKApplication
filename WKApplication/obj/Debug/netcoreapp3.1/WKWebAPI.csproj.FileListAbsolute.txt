@@ -64,8 +64,6 @@ C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\W
 C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\WKWebAPI.dll
 C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\WKWebAPI.pdb
 C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\AutoMapper.dll
-C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\EntityFramework.SqlServer.dll
-C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\EntityFramework.dll
 C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
@@ -80,17 +78,7 @@ C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\R
 C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.Swagger.dll
 C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerGen.dll
 C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\Swashbuckle.AspNetCore.SwaggerUI.dll
-C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\System.CodeDom.dll
-C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\System.Configuration.ConfigurationManager.dll
-C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\System.Data.SqlClient.dll
 C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\System.Interactive.Async.dll
-C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\System.Security.Cryptography.ProtectedData.dll
-C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\runtimes\win-arm64\native\sni.dll
-C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\runtimes\win-x64\native\sni.dll
-C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\runtimes\win-x86\native\sni.dll
-C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\runtimes\unix\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
-C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\runtimes\win\lib\netstandard2.0\System.Security.Cryptography.ProtectedData.dll
 C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\WKData.dll
 C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\WKDomain.dll
 C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\WKManager.dll

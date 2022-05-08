@@ -25,8 +25,8 @@ namespace WKWebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
-            services.AddSwaggerConfiguration();
             services.AddDataBaseConfiguration(Configuration);
+            services.AddSwaggerConfiguration();
 
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
             services.AddScoped<ICategoriaRepository, CategoriaRepository>();
@@ -44,6 +44,8 @@ namespace WKWebAPI
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseDataBaseConfiguration();
 
             app.UseSwaggerConfiguration();
 
