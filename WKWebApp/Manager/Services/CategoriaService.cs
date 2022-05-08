@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System.Collections.Generic;
+using System.Net;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Threading.Tasks;
@@ -33,10 +34,13 @@ namespace WKWebApp.AppService
 
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync("https://localhost:44369/api/categorias/obter"))
+                using (var response = await httpClient.GetAsync("https://localhost:44369/api/categorias/listar"))
                 {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    categorias = JsonConvert.DeserializeObject<List<Categoria>>(apiResponse);
+                    if (response.StatusCode == HttpStatusCode.OK)
+                    {
+                        string apiResponse = await response.Content.ReadAsStringAsync();
+                        categorias = JsonConvert.DeserializeObject<List<Categoria>>(apiResponse);
+                    }
                 }
             }
 

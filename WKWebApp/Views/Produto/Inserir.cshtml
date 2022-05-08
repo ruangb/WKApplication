@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Cadastrar novo Produto";
+    //var categorias = (IEnumerable<WKDomain.Models.Categoria>)ViewBag.Categorias;
 }
 
 <br />
@@ -32,7 +33,7 @@
             </div>
             <div class="form-group">
                 <label asp-for="Categoria" class="control-label"></label>
-                <select asp-for="Categoria" class="form-control w50" asp-items="@new SelectList(ViewBag.Categorias as SelectList)">
+                <select asp-for="Categoria" class="form-control w50" asp-items="@new SelectList(ViewBag.Categorias)">
                     <option selected="selected" value="">Selecione uma opção</option>
                 </select>
                 <span asp-validation-for="Categoria" class="text-danger"></span>

@@ -23,10 +23,11 @@ namespace WKWebAPI.Controllers
         /// Retorna todos os produtos da base
         /// </summary> 
         [HttpGet]
+        [Route("listar")]
         [ProducesResponseType(typeof(Produto), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Get()
+        public async Task<IActionResult> Listar()
         {
             var produtos = await _produtoManager.GetProdutosAsync();
 
@@ -43,7 +44,7 @@ namespace WKWebAPI.Controllers
         [HttpGet("{id}")]
         [ProducesResponseType(typeof(Produto), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Get(int id)
+        public async Task<IActionResult> Obter(int id)
         {
             var produto = await _produtoManager.GetProdutoAsync(id);
 
@@ -61,13 +62,13 @@ namespace WKWebAPI.Controllers
         [ProducesResponseType(typeof(Produto), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Post([FromBody] NovoProduto novoProduto)
+        public async Task<IActionResult> Inserir([FromBody] NovoProduto novoProduto)
         {
             Produto produtoInserido;
 
             produtoInserido = await _produtoManager.InsertProdutoAsync(novoProduto);
 
-            return CreatedAtAction(nameof(Get), new { id = produtoInserido.Id }, produtoInserido);
+            return CreatedAtAction(nameof(Obter), new { id = produtoInserido.Id }, produtoInserido);
         }
 
         /// <summary>
@@ -78,7 +79,7 @@ namespace WKWebAPI.Controllers
         [ProducesResponseType(typeof(Produto), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Put([FromBody] AtualizaProduto atualizaProduto)
+        public async Task<IActionResult> Atualizar([FromBody] AtualizaProduto atualizaProduto)
         {
             var atualizadProduto = await _produtoManager.UpdateProdutoAsync(atualizaProduto);
 
@@ -96,7 +97,7 @@ namespace WKWebAPI.Controllers
         [ProducesResponseType(typeof(Produto), StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Delete(int id)
+        public async Task<IActionResult> Deletar(int id)
         {
             await _produtoManager.DeleteProdutoAsync(id);
 

@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Collections.Generic;
 using System.Threading.Tasks;
 using WKDomain.Models;
@@ -31,10 +32,15 @@ namespace WKWebApp.Controllers
             return View();
         }
 
+
+        [HttpGet]
         [Route("inserir")]
         public ActionResult Inserir()
         {
-            ViewBag.Categorias = _categoriaRepository.ObterCategoriasAsync();
+            var categorias = _categoriaRepository.ObterCategoriasAsync().Result;
+
+            ViewBag.Categorias = new SelectList(categorias, "Value", "Text");
+
             return View();
         }
 
@@ -53,14 +59,14 @@ namespace WKWebApp.Controllers
             return RedirectToAction("Create");
         }
 
-        public ActionResult Edit(int id)
+        public ActionResult Editar(int id)
         {
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Edit(int id, IFormCollection collection)
+        public ActionResult Editar(int id, IFormCollection collection)
         {
             try
             {
@@ -72,14 +78,14 @@ namespace WKWebApp.Controllers
             }
         }
 
-        public ActionResult Delete(int id)
+        public ActionResult Deletar(int id)
         {
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Delete(int id, IFormCollection collection)
+        public ActionResult Deletar(int id, IFormCollection collection)
         {
             try
             {

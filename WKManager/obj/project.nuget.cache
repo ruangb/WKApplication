@@ -1,11 +1,12 @@
 {
   "version": 2,
-  "dgSpecHash": "o+Z54g6FcSCZZgMBmgZbIcUXdNB1VJW9ENc8fYFXXbs9eS4XQOs7oaFc9r6GZIbYwRtDKt4SVX4oX/8d93GX8g==",
+  "dgSpecHash": "coCfShVwUk+5PG97g2b667Fu+ENVdzsqZs2hXUG3pzXl3rpAPO0Ga+Kcp7MVWjmF5jC6ac1nABe0OHq6Z4Kneg==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ruan\\source\\repos\\WKApplication\\WKManager\\WKManager.csproj",
   "expectedPackageFiles": [
-    "C:\\Users\\Ruan\\.nuget\\packages\\automapper\\11.0.1\\automapper.11.0.1.nupkg.sha512",
-    "C:\\Users\\Ruan\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+    "C:\\Users\\Ruan\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\Ruan\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512",
+    "C:\\Users\\Ruan\\.nuget\\packages\\system.reflection.emit\\4.7.0\\system.reflection.emit.4.7.0.nupkg.sha512"
   ],
   "logs": []
 }

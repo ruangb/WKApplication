@@ -44,10 +44,13 @@ namespace WKWebApp.AppService
 
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync("https://localhost:44369/api/produtos/obter"))
+                using (var response = await httpClient.GetAsync("https://localhost:44369/api/produtos/listar"))
                 {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    produtos = JsonConvert.DeserializeObject<List<Produto>>(apiResponse);
+                    if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                    {
+                        string apiResponse = await response.Content.ReadAsStringAsync();
+                        produtos = JsonConvert.DeserializeObject<List<Produto>>(apiResponse);
+                    }
                 }
             }
 

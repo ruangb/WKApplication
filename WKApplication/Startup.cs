@@ -28,6 +28,9 @@ namespace WKWebAPI
             services.AddDataBaseConfiguration(Configuration);
             services.AddSwaggerConfiguration();
 
+            services.AddAutoMapperConfig();
+
+
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
             services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 

@@ -82,7 +82,7 @@
             },
             "automapper": {
               "target": "Package",
-              "version": "[11.0.1, )"
+              "version": "[10.1.1, )"
             },
             "automapper.extensions.microsoft.dependencyinjection": {
               "target": "Package",
@@ -303,7 +303,7 @@
           "dependencies": {
             "AutoMapper": {
               "target": "Package",
-              "version": "[11.0.1, )"
+              "version": "[10.1.1, )"
             }
           },
           "imports": [

@@ -22,7 +22,7 @@ namespace WKWebAPI.Controllers
         /// <sumamary>
         /// Retorna todos os categorias da base
         /// </sumamary> 
-        //[Route("obter")]
+        [Route("listar")]
         [HttpGet]
         [ProducesResponseType(typeof(Categoria), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
