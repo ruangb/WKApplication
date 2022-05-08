@@ -64,6 +64,7 @@ C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\W
 C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\WKWebAPI.dll
 C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\WKWebAPI.pdb
 C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\AutoMapper.dll
+C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\AutoMapper.Extensions.Microsoft.DependencyInjection.dll
 C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.dll
 C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Abstractions.dll
 C:\Users\Ruan\source\repos\WKApplication\WKApplication\bin\Debug\netcoreapp3.1\Microsoft.EntityFrameworkCore.Design.dll
