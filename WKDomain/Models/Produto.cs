@@ -14,7 +14,13 @@ namespace WKDomain.Models
         [Required(ErrorMessage = "{0} obrigatório")]
         [DisplayFormat(DataFormatString = "{0:N2}")]
         [Column(TypeName = "decimal(7,2)")]
+        [Display(Name = "Preço")]
         public decimal Preco { get; set; }
+
+        [NotMapped]
+        [Required(ErrorMessage = "{0} obrigatória")]
+        [Display(Name = "Categoria")]
+        public decimal CategoriaId { get; set; }
 
         public Categoria Categoria { get; set; }
     }

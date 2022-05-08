@@ -9,6 +9,7 @@ using WKWebApp.Manager.Repositories;
 
 namespace WKWebApp.Controllers
 {
+    [Route("[controller]")]
     public class ProdutoController : Controller
     {
         private readonly IProdutoRepository _produtoRepository;
@@ -20,6 +21,7 @@ namespace WKWebApp.Controllers
             _categoriaRepository = categoriaRepository;
         }
 
+        [HttpGet("index")]
         public async Task<ActionResult> Index()
         {
             IEnumerable<Produto> produto = await _produtoRepository.GetProdutosAsync();
@@ -27,11 +29,11 @@ namespace WKWebApp.Controllers
             return View(produto);
         }
 
+        [HttpGet("detalhes")]
         public ActionResult Detalhes(int id)
         {
             return View();
         }
-
 
         [HttpGet]
         [Route("inserir")]
@@ -39,7 +41,7 @@ namespace WKWebApp.Controllers
         {
             var categorias = _categoriaRepository.ObterCategoriasAsync().Result;
 
-            ViewBag.Categorias = new SelectList(categorias, "Value", "Text");
+            ViewBag.Categorias = new SelectList(categorias, "Id", "Nome");
 
             return View();
         }
@@ -56,7 +58,7 @@ namespace WKWebApp.Controllers
 
             TempData["$AlertMessage$"] = "Registro salvo com sucesso!";
 
-            return RedirectToAction("Create");
+            return RedirectToAction("Inserir");
         }
 
         public ActionResult Editar(int id)

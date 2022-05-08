@@ -60,7 +60,7 @@ namespace WKWebApp
             {
                 routes.MapRoute(
                     name: "default",
-                    template: "{controller=Produto}/{action=Index}/{id?}");
+                    template: "{controller=Produto}/{action=index}");
             });
         }
     }

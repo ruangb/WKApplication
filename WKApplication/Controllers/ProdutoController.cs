@@ -22,8 +22,7 @@ namespace WKWebAPI.Controllers
         /// <summary>
         /// Retorna todos os produtos da base
         /// </summary> 
-        [HttpGet]
-        [Route("listar")]
+        [HttpGet("listar")]
         [ProducesResponseType(typeof(Produto), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
@@ -58,7 +57,7 @@ namespace WKWebAPI.Controllers
         /// Insere um Novo Produto
         /// </summary>
         /// <param name="novoProduto">Novo Produto a ser inserido</param>
-        [HttpPost]
+        [HttpPost("inserir")]
         [ProducesResponseType(typeof(Produto), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]

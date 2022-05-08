@@ -1,7 +1,7 @@
-﻿@model WKDomain.ModelViews.NovoProduto
+﻿@model WKDomain.Models.Categoria
 
 @{
-    ViewData["Title"] = "Cadastrar novo Produto";
+    ViewData["Title"] = "Cadastrar nova Categoria";
 }
 
 <br />
@@ -18,24 +18,12 @@
 <hr />
 <div class="row">
     <div class="col-md-4 col-md-offset-4">
-        <form asp-action="Inserir" class="form-group-sm">
+        <form asp-action="inserir" class="form-group-sm">
             <div asp-validation-summary="ModelOnly" class="text-danger"></div>
             <div class="form-group">
                 <label asp-for="Nome" class="control-label"></label>
                 <input asp-for="Nome" class="form-control w40" />
                 <span asp-validation-for="Nome" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="Preco" class="control-label"></label>
-                <input asp-for="Preco" class="form-control w40" />
-                <span asp-validation-for="Preco" class="text-danger"></span>
-            </div>
-            <div class="form-group">
-                <label asp-for="CategoriaId" class="control-label"></label>
-                <select asp-for="CategoriaId" class="form-control w50" asp-items="@ViewBag.Categorias as SelectList">
-                    <option selected="selected" value="">Selecione uma opção</option>
-                </select>
-                <span asp-validation-for="CategoriaId" class="text-danger"></span>
             </div>
             <div class="form-group">
                 <input type="submit" value="Salvar" class="btn btn-default" />

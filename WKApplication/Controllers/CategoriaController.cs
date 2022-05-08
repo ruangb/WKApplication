@@ -22,8 +22,7 @@ namespace WKWebAPI.Controllers
         /// <sumamary>
         /// Retorna todos os categorias da base
         /// </sumamary> 
-        [Route("listar")]
-        [HttpGet]
+        [HttpGet("listar")]
         [ProducesResponseType(typeof(Categoria), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
@@ -42,8 +41,7 @@ namespace WKWebAPI.Controllers
         /// </sumamary>
         /// <param name="id" example="1">Id do Categoria</param>
         /// 
-        //[Route("obter/{id}")]
-        [HttpGet("{id}")]
+        [HttpGet("obter/{id}")]
         [ProducesResponseType(typeof(Categoria), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Obter(int id)
@@ -60,8 +58,7 @@ namespace WKWebAPI.Controllers
         /// Insere uma Nova Categoria
         /// </sumamary>
         /// <param name="novaCategoria">Nova Categoria a ser inserido</param>
-        //[Route("inserir")]
-        [HttpPost]
+        [HttpPost("inserir")]
         [ProducesResponseType(typeof(Categoria), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
