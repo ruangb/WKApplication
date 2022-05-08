@@ -17,10 +17,9 @@ namespace WKDomain.Models
         [Display(Name = "Preço")]
         public decimal Preco { get; set; }
 
-        [NotMapped]
         [Required(ErrorMessage = "{0} obrigatória")]
         [Display(Name = "Categoria")]
-        public decimal CategoriaId { get; set; }
+        public int CategoriaId { get; set; }
 
         public Categoria Categoria { get; set; }
     }

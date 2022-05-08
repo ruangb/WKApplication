@@ -10,48 +10,48 @@ namespace WKManager.Implementation
 {
     public class ProdutoManager : IProdutoManager
     {
-        private readonly IProdutoRepository ProdutoRepository;
-        private readonly IMapper mapper;
+        private readonly IProdutoRepository _produtoRepository;
+        private readonly IMapper _mapper;
 
-        public ProdutoManager(IProdutoRepository ProdutoRepository, IMapper mapper)
+        public ProdutoManager(IProdutoRepository produtoRepository, IMapper mapper)
         {
-            this.ProdutoRepository = ProdutoRepository;
-            this.mapper = mapper;
+            _produtoRepository = produtoRepository;
+            _mapper = mapper;
         }
 
         public async Task<IEnumerable<Produto>> GetProdutosAsync()
         {
-            return mapper.Map<IEnumerable<Produto>>(await ProdutoRepository.GetProdutosAsync());
+            return _mapper.Map<IEnumerable<Produto>>(await _produtoRepository.GetProdutosAsync());
         }
 
         public async Task<Produto> GetProdutoAsync(int id)
         {
-            return mapper.Map<Produto>(await ProdutoRepository.GetProdutoAsync(id));
+            return _mapper.Map<Produto>(await _produtoRepository.GetProdutoAsync(id));
         }
 
-        public async Task<Produto> InsertProdutoAsync(NovoProduto novoProduto)
+        public async Task<Produto> InsertProdutoAsync(NovoProduto novoproduto)
         {
-            var Produto = mapper.Map<Produto>(novoProduto);
+            var produto = _mapper.Map<Produto>(novoproduto);
 
-            Produto = await ProdutoRepository.InsertProdutoAsync(Produto);
+            produto = await _produtoRepository.InsertProdutoAsync(produto);
 
-            return mapper.Map<Produto>(Produto);
+            return _mapper.Map<Produto>(produto);
         }
 
-        public async Task<Produto> UpdateProdutoAsync(AtualizaProduto atualizaProduto)
+        public async Task<Produto> UpdateProdutoAsync(AtualizaProduto atualizaproduto)
         {
-            var Produto = mapper.Map<Produto>(atualizaProduto);
+            var produto = _mapper.Map<Produto>(atualizaproduto);
 
-            Produto = await ProdutoRepository.UpdateProdutoAsync(Produto);
+            produto = await _produtoRepository.UpdateProdutoAsync(produto);
 
-            return mapper.Map<Produto>(Produto);
+            return _mapper.Map<Produto>(produto);
         }
 
         public async Task<Produto> DeleteProdutoAsync(int id)
         {
-            var cliente = await ProdutoRepository.DeleteProdutoAsync(id);
+            var cliente = await _produtoRepository.DeleteProdutoAsync(id);
 
-            return mapper.Map<Produto>(cliente);
+            return _mapper.Map<Produto>(cliente);
         }
     }
 }

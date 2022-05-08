@@ -8,16 +8,18 @@ namespace WKData.Repositories
 {
     public class ProdutoRepository : IProdutoRepository
     {
-        private readonly WKContext context;
+        private readonly WKContext _context;
+        private readonly ICategoriaRepository _categoriaRepository;
 
-        public ProdutoRepository(WKContext context)
+        public ProdutoRepository(WKContext context, ICategoriaRepository categoriaRepository)
         {
-            this.context = context;
+            _context = context;
+            _categoriaRepository = categoriaRepository;
         }
 
         public async Task<IEnumerable<Produto>> GetProdutosAsync()
         {
-            return await context.Produto
+            return await _context.Produto
                 .Include(p => p.Categoria)
                 .AsNoTracking()
                 .ToListAsync();
@@ -25,46 +27,47 @@ namespace WKData.Repositories
 
         public async Task<Produto> GetProdutoAsync(int id)
         {
-            return await context.Produto
+            return await _context.Produto
                 .Include(p => p.Categoria)
                 .SingleOrDefaultAsync(p => p.Id == id);
         }
 
-        public async Task<Produto> InsertProdutoAsync(Produto Produto)
+        public async Task<Produto> InsertProdutoAsync(Produto produto)
         {
-            await context.Produto.AddAsync(Produto);
-            await context.SaveChangesAsync();
+            await _context.Produto.AddAsync(produto);
+            await _context.SaveChangesAsync();
 
-            return Produto;
+            produto.Categoria = _categoriaRepository.GetCategoriaAsync(produto.CategoriaId).Result;
+
+            return produto;
         }
 
-        public async Task<Produto> UpdateProdutoAsync(Produto Produto)
+        public async Task<Produto> UpdateProdutoAsync(Produto produto)
         {
-            var searchedProduto = await context.Produto.FindAsync(Produto.Id);
+            var searchedProduto = await _context.Produto.FindAsync(produto.Id);
 
             if (searchedProduto == null)
                 return null;
 
-            context.Entry(searchedProduto).CurrentValues.SetValues(Produto);
+            _context.Entry(searchedProduto).CurrentValues.SetValues(produto);
 
-            await context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
 
             return searchedProduto;
         }
 
         public async Task<Produto> DeleteProdutoAsync(int id)
         {
-            var searchedProduto = await context.Produto.FindAsync(id);
+            var searchedProduto = await _context.Produto.FindAsync(id);
 
             if (searchedProduto == null)
                 return null;
 
-            var removedProduto = context.Produto.Remove(searchedProduto);
+            var removedProduto = _context.Produto.Remove(searchedProduto);
 
-            await context.SaveChangesAsync();
+            await _context.SaveChangesAsync();
 
             return removedProduto.Entity;
         }
-
     }
 }
