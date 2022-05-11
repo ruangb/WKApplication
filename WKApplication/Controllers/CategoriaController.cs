@@ -74,28 +74,26 @@ namespace WKWebAPI.Controllers
         /// <sumamary>
         /// Atualiza uma Categoria
         /// </sumamary>
-        /// <param name="atualizaCategoria">Categoria a ser atualizado</param>
-        //[Route("atualizar")]
-        [HttpPut]
+        /// <param name="categoria">Categoria a ser atualizada</param>
+        [HttpPut("atualizar")]
         [ProducesResponseType(typeof(Categoria), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Atualizar([FromBody] AtualizaCategoria atualizaCategoria)
+        public async Task<IActionResult> Atualizar([FromBody] Categoria categoria)
         {
-            var atualizadCategoria = await _categoriaManager.UpdateCategoriaAsync(atualizaCategoria);
+            var categoriaAtualizada = await _categoriaManager.UpdateCategoriaAsync(categoria);
 
-            if (atualizadCategoria == null)
+            if (categoriaAtualizada == null)
                 return NotFound();
 
-            return Ok(atualizadCategoria);
+            return Ok(categoriaAtualizada);
         }
 
         /// <sumamary>
         /// Deleta uma Categoria pelo Id
         /// </sumamary>
         /// <param name="id">Id do Categoria</param>
-        //[Route("deletar/{id}")]
-        [HttpDelete("{id}")]
+        [HttpDelete("deletar/{id}")]
         [ProducesResponseType(typeof(Categoria), StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]

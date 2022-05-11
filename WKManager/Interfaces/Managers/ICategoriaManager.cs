@@ -9,8 +9,8 @@ namespace WKManager.Interfaces.Managers
     {
         Task<Categoria> GetCategoriaAsync(int id);
         Task<IEnumerable<Categoria>> GetCategoriasAsync();
-        Task<Categoria> InsertCategoriaAsync(NovaCategoria Categoria);
-        Task<Categoria> UpdateCategoriaAsync(AtualizaCategoria Categoria);
+        Task<Categoria> InsertCategoriaAsync(NovaCategoria categoria);
+        Task<Categoria> UpdateCategoriaAsync(Categoria categoria);
         Task<Categoria> DeleteCategoriaAsync(int id);
     }
 }

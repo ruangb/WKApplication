@@ -13,7 +13,6 @@ C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\WKWebA
 C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\WKWebApp.TagHelpers.output.cache
 C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\WKWebApp.RazorCoreGenerate.cache
 C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Categoria\Index.cshtml.g.cs
-C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Categoria\Inserir.cshtml.g.cs
 C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Produto\Editar.cshtml.g.cs
 C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Produto\Index.cshtml.g.cs
 C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Produto\Inserir.cshtml.g.cs
@@ -74,3 +73,9 @@ C:\Users\Ruan\source\repos\WKApplication\WKWebApp\bin\Debug\netcoreapp3.1\WKMana
 C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\WKWebApp.Views.pdb
 C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\WKWebApp.csproj.CopyComplete
 C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\WKWebApp.genruntimeconfig.cache
+C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Categoria\Delete.cshtml.g.cs
+C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Categoria\Details.cshtml.g.cs
+C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Categoria\Edit.cshtml.g.cs
+C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Categoria\Insert.cshtml.g.cs
+C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Produto\Details.cshtml.g.cs
+C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Produto\Delete.cshtml.g.cs

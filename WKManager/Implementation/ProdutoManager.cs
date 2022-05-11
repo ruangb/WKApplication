@@ -29,9 +29,9 @@ namespace WKManager.Implementation
             return _mapper.Map<Produto>(await _produtoRepository.GetProdutoAsync(id));
         }
 
-        public async Task<Produto> InsertProdutoAsync(NovoProduto novoproduto)
+        public async Task<Produto> InsertProdutoAsync(NovoProduto novoProduto)
         {
-            var produto = _mapper.Map<Produto>(novoproduto);
+            var produto = _mapper.Map<Produto>(novoProduto);
 
             produto = await _produtoRepository.InsertProdutoAsync(produto);
 

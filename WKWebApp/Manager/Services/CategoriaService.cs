@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Net;
 using System.Net.Http;
@@ -12,7 +13,7 @@ namespace WKWebApp.AppService
 {
     public class CategoriaService : ICategoriaRepository
     {
-        public async Task<Categoria> ObterCategoriaAsync(int id)
+        public async Task<Categoria> GetAsync(int id)
         {
             var categoria = new Categoria();
 
@@ -28,7 +29,7 @@ namespace WKWebApp.AppService
             return categoria;
         }
 
-        public async Task<IList<Categoria>> ObterCategoriasAsync()
+        public async Task<IList<Categoria>> GetAsync()
         {
             var categorias = new List<Categoria>();
 
@@ -47,7 +48,7 @@ namespace WKWebApp.AppService
             return categorias;
         }
 
-        public async Task<Categoria> InserirCategoriaAsync(NovaCategoria categoria)
+        public async Task<Categoria> InsertAsync(NovaCategoria categoria)
         {
             var categoriaInserida = new Categoria();
 
@@ -70,7 +71,7 @@ namespace WKWebApp.AppService
             return categoriaInserida;
         }
 
-        public async Task<Categoria> AtualizarCategoriaAsync(AtualizaCategoria categoria)
+        public async Task<Categoria> UpdateAsync(Categoria categoria)
         {
             var categoriaAtualizada = new Categoria();
 
@@ -83,17 +84,29 @@ namespace WKWebApp.AppService
 
                 byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-                using (var response = await httpClient.PostAsync("https://localhost:44369/api/categorias/atualizar", byteContent))
+                try
                 {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    categoriaAtualizada = JsonConvert.DeserializeObject<Categoria>(apiResponse);
+                    using (var response = await httpClient.PutAsync("https://localhost:44369/api/categorias/atualizar", byteContent))
+                    {
+                        if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                        {
+                            string apiResponse = await response.Content.ReadAsStringAsync();
+                            categoriaAtualizada = JsonConvert.DeserializeObject<Categoria>(apiResponse);
+                        }
+                        else
+                            throw new Exception(response.StatusCode.ToString());
+                    }
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(e.Message);
                 }
             }
 
             return categoriaAtualizada;
         }
 
-        public async void DeletarCategoriaAsync(int id)
+        public async void DeleteAsync(int id)
         {
             using (var httpClient = new HttpClient())
             {

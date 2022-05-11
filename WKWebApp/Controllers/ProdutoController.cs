@@ -42,7 +42,7 @@ namespace WKWebApp.Controllers
         [HttpGet("inserir")]
         public ActionResult Inserir()
         {
-            var categorias = _categoriaRepository.ObterCategoriasAsync().Result;
+            var categorias = _categoriaRepository.GetAsync().Result;
 
             ViewBag.Categorias = new SelectList(categorias, "Id", "Nome");
 
@@ -75,7 +75,7 @@ namespace WKWebApp.Controllers
             if (produto == null)
                 return RedirectToAction(nameof(Error), new { message = "Id not found" });
 
-            var categorias = _categoriaRepository.ObterCategoriasAsync().Result;
+            var categorias = _categoriaRepository.GetAsync().Result;
 
             categorias.Add(new Categoria() { Id = 0, Nome = "Selecione uma opção" });
 

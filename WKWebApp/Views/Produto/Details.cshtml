@@ -1,0 +1,45 @@
+﻿@model WKDomain.Models.Produto
+
+@{
+    ViewData["Title"] = $"Detalhes do produto";
+}
+
+<br />
+
+<h3>@ViewData["Title"]</h3>
+
+<hr />
+<div class="row">
+    <div class="col-md-4 col-md-offset-4">
+        <div class="form-group">
+            @Html.DisplayNameFor(model => model.Nome)
+            @Html.DisplayFor(model => model.Nome)
+        </div>
+        <div class="form-group">
+            @Html.DisplayNameFor(model => model.Preco)
+            @Html.DisplayFor(model => model.Preco)
+        </div>
+        <div class="form-group">
+            @Html.DisplayNameFor(model => model.CategoriaId)
+            @Html.DisplayFor(model => model.Categoria.Nome)
+        </div>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Voltar para a lista</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+
+    <script>
+        $.validator.methods.range = function (value, element, param) {
+            var globalizedValue = value.replace(",", ".");
+            return this.optional(element) || (globalizedValue >= param[0] && globalizedValue <= param[1]);
+        }
+        $.validator.methods.number = function (value, element) {
+            return this.optional(element) || /-?(?:\d+|\d{1,3}(?:[\s\.,]\d{3})+)(?:[\.,]\d+)?$/.test(value);
+        }
+    </script>
+}

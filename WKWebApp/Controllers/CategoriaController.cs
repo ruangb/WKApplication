@@ -11,7 +11,6 @@ using WKWebApp.Models;
 
 namespace WKWebApp.Controllers
 {
-    //[Route("categoria")]
     [Route("[controller]")]
     public class CategoriaController : Controller
     {
@@ -23,65 +22,85 @@ namespace WKWebApp.Controllers
         }
 
         [HttpGet("index")]
-        public async Task<ActionResult> Index()
+        public async Task<ActionResult> IndexAsync()
         {
-            IEnumerable<Categoria> categoria = await _categoriaRepository.ObterCategoriasAsync();
+            IEnumerable<Categoria> categoria = await _categoriaRepository.GetAsync();
 
             return View(categoria);
         }
 
-        [HttpGet("detalhes")]
-        public ActionResult Detalhes(int id)
+        [HttpGet("details")]
+        public async Task<ActionResult> DetailsAsync(int id)
         {
-            return View();
+            var categoria = await _categoriaRepository.GetAsync(id);
+            return View(categoria);
         }
 
-        [HttpGet("inserir")]
-        public ActionResult Inserir()
+        [HttpGet("insert")]
+        public async Task<ActionResult> InsertAsync()
         {
-            ViewBag.Categorias = _categoriaRepository.ObterCategoriasAsync();
+            ViewBag.Categorias = await _categoriaRepository.GetAsync();
             return View();
         }
 
         [HttpPost]
-        [Route("inserir")]
+        [Route("insert")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> InserirAsync(NovaCategoria categoria)
+        public async Task<ActionResult> InsertAsync(NovaCategoria categoria)
         {
             if (!ModelState.IsValid)
                 return View(categoria);
 
-            await _categoriaRepository.InserirCategoriaAsync(categoria);
+            await _categoriaRepository.InsertAsync(categoria);
 
             TempData["$AlertMessage$"] = "Registro salvo com sucesso!";
 
             return RedirectToAction("Inserir");
         }
 
-        public ActionResult Editar(int id)
+        [Route("edit")]
+        public async Task<ActionResult> EditAsync(int? id)
         {
-            return View();
+            if (id == null)
+                return RedirectToAction(nameof(Error), new { message = "Id not found" });
+
+            var categoria = await _categoriaRepository.GetAsync(id.Value);
+
+            if (categoria == null)
+                return RedirectToAction(nameof(Error), new { message = "Id not found" });
+
+            return View(categoria);
         }
 
         [HttpPost]
+        [Route("edit")]
         [ValidateAntiForgeryToken]
-        public ActionResult Editar(int id, IFormCollection collection)
+        public async Task<ActionResult> EditAsync(int id, Categoria categoria)
         {
+            if (!ModelState.IsValid)
+                return View(categoria);
+
+            if (id != categoria.Id)
+                return RedirectToAction(nameof(Error), new { message = "O categoria não corresponde" });
+
             try
             {
+                var result = await _categoriaRepository.UpdateAsync(categoria);
+
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception e)
             {
-                return View();
+                return RedirectToAction(nameof(Error), new { message = e.Message });
             }
         }
 
-        public async Task<IActionResult> Deletar(int? id)
+        [Route("delete")]
+        public async Task<IActionResult> DeleteAsync(int? id)
         {
             if (id != null)
             {
-                var obj = await _categoriaRepository.ObterCategoriaAsync(id.Value);
+                var obj = await _categoriaRepository.GetAsync(id.Value);
 
                 if (obj != null)
                     return View(obj);
@@ -91,12 +110,13 @@ namespace WKWebApp.Controllers
         }
 
         [HttpPost]
+        [Route("delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Deletar(int id)
+        public async Task<IActionResult> DeleteAsync(int id)
         {
             try
             {
-                _categoriaRepository.DeletarCategoriaAsync(id);
+                _categoriaRepository.DeleteAsync(id);
                 return RedirectToAction(nameof(Index));
             }
             catch (Exception e)

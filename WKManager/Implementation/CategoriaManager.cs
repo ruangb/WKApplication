@@ -10,48 +10,46 @@ namespace WKManager.Implementation
 {
     public class CategoriaManager : ICategoriaManager
     {
-        private readonly ICategoriaRepository CategoriaRepository;
-        private readonly IMapper mapper;
+        private readonly ICategoriaRepository _categoriaRepository;
+        private readonly IMapper _mapper;
 
-        public CategoriaManager(ICategoriaRepository CategoriaRepository, IMapper mapper)
+        public CategoriaManager(ICategoriaRepository categoriaRepository, IMapper mapper)
         {
-            this.CategoriaRepository = CategoriaRepository;
-            this.mapper = mapper;
+            _categoriaRepository = categoriaRepository;
+            _mapper = mapper;
         }
 
         public async Task<IEnumerable<Categoria>> GetCategoriasAsync()
         {
-            return await CategoriaRepository.GetCategoriasAsync();
+            return await _categoriaRepository.GetCategoriasAsync();
         }
 
         public async Task<Categoria> GetCategoriaAsync(int id)
         {
-            return mapper.Map<Categoria>(await CategoriaRepository.GetCategoriaAsync(id));
+            return _mapper.Map<Categoria>(await _categoriaRepository.GetCategoriaAsync(id));
         }
 
-        public async Task<Categoria> InsertCategoriaAsync(NovaCategoria NovaCategoria)
+        public async Task<Categoria> InsertCategoriaAsync(NovaCategoria novaCategoria)
         {
-            var Categoria = mapper.Map<Categoria>(NovaCategoria);
+            var categoria = _mapper.Map<Categoria>(novaCategoria);
 
-            Categoria = await CategoriaRepository.InsertCategoriaAsync(Categoria);
+            categoria = await _categoriaRepository.InsertCategoriaAsync(categoria);
 
-            return mapper.Map<Categoria>(Categoria);
+            return _mapper.Map<Categoria>(categoria);
         }
 
-        public async Task<Categoria> UpdateCategoriaAsync(AtualizaCategoria atualizaCategoria)
+        public async Task<Categoria> UpdateCategoriaAsync(Categoria categoria)
         {
-            var Categoria = mapper.Map<Categoria>(atualizaCategoria);
+            categoria = await _categoriaRepository.UpdateCategoriaAsync(categoria);
 
-            Categoria = await CategoriaRepository.UpdateCategoriaAsync(Categoria);
-
-            return mapper.Map<Categoria>(Categoria);
+            return _mapper.Map<Categoria>(categoria);
         }
 
         public async Task<Categoria> DeleteCategoriaAsync(int id)
         {
-            var cliente = await CategoriaRepository.DeleteCategoriaAsync(id);
+            var categoria = await _categoriaRepository.DeleteCategoriaAsync(id);
 
-            return mapper.Map<Categoria>(cliente);
+            return _mapper.Map<Categoria>(categoria);
         }
     }
 }

@@ -73,7 +73,7 @@ namespace WKWebAPI.Controllers
         /// <summary>
         /// Atualiza um Produto
         /// </summary>
-        /// <param name="atualizaProduto">Produto a ser atualizado</param>
+        /// <param name="produto">Produto a ser atualizado</param>
         [HttpPut("atualizar")]
         [ProducesResponseType(typeof(Produto), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]

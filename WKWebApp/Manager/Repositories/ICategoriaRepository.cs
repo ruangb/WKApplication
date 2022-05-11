@@ -7,10 +7,10 @@ namespace WKWebApp.Manager.Repositories
 {
     public interface ICategoriaRepository
     {
-        Task<Categoria> ObterCategoriaAsync(int id);
-        Task<IList<Categoria>> ObterCategoriasAsync();
-        Task<Categoria> InserirCategoriaAsync(NovaCategoria Categoria);
-        Task<Categoria> AtualizarCategoriaAsync(AtualizaCategoria Categoria);
-        void DeletarCategoriaAsync(int id);
+        Task<Categoria> GetAsync(int id);
+        Task<IList<Categoria>> GetAsync();
+        Task<Categoria> InsertAsync(NovaCategoria Categoria);
+        Task<Categoria> UpdateAsync(Categoria Categoria);
+        void DeleteAsync(int id);
     }
 }
