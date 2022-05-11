@@ -38,13 +38,11 @@ namespace WKManager.Implementation
             return _mapper.Map<Produto>(produto);
         }
 
-        public async Task<Produto> UpdateProdutoAsync(AtualizaProduto atualizaproduto)
+        public async Task<Produto> UpdateProdutoAsync(Produto produto)
         {
-            var produto = _mapper.Map<Produto>(atualizaproduto);
+            var produtoAtualizado = await _produtoRepository.UpdateProdutoAsync(produto);
 
-            produto = await _produtoRepository.UpdateProdutoAsync(produto);
-
-            return _mapper.Map<Produto>(produto);
+            return _mapper.Map<Produto>(produtoAtualizado);
         }
 
         public async Task<Produto> DeleteProdutoAsync(int id)

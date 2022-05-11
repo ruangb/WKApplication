@@ -1,11 +1,15 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
 using System.Threading.Tasks;
 using WKDomain.Models;
 using WKDomain.ModelViews;
 using WKWebApp.Manager.Repositories;
+using WKWebApp.Models;
 
 namespace WKWebApp.Controllers
 {
@@ -35,8 +39,7 @@ namespace WKWebApp.Controllers
             return View();
         }
 
-        [HttpGet]
-        [Route("inserir")]
+        [HttpGet("inserir")]
         public ActionResult Inserir()
         {
             var categorias = _categoriaRepository.ObterCategoriasAsync().Result;
@@ -61,31 +64,57 @@ namespace WKWebApp.Controllers
             return RedirectToAction("Inserir");
         }
 
-        public ActionResult Editar(int id)
+        [Route("editar")]
+        public async Task<ActionResult> EditarAsync(int? id)
         {
-            return View();
+            if (id == null)
+                return RedirectToAction(nameof(Error), new { message = "Id not found" });
+
+            var produto = await _produtoRepository.GetProdutoAsync(id.Value);
+
+            if (produto == null)
+                return RedirectToAction(nameof(Error), new { message = "Id not found" });
+
+            var categorias = _categoriaRepository.ObterCategoriasAsync().Result;
+
+            categorias.Add(new Categoria() { Id = 0, Nome = "Selecione uma opção" });
+
+            ViewBag.Categorias = new SelectList(categorias, "Id", "Nome", categorias.Where(x => x.Id == produto.CategoriaId).FirstOrDefault());
+
+            return View(produto);
         }
 
         [HttpPost]
+        [Route("editar")]
         [ValidateAntiForgeryToken]
-        public ActionResult Editar(int id, IFormCollection collection)
+        public async Task<ActionResult> EditarAsync(int id, Produto produto)
         {
+            if (!ModelState.IsValid)
+                return View(produto);
+
+            if (id != produto.Id)
+                return RedirectToAction(nameof(Error), new { message = "O produto não corresponde" });
+
             try
             {
+                var result = await _produtoRepository.UpdateProdutoAsync(produto);
+
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception e)
             {
-                return View();
+                return RedirectToAction(nameof(Error), new { message = e.Message });
             }
         }
 
+        [Route("deletar")]
         public ActionResult Deletar(int id)
         {
             return View();
         }
 
         [HttpPost]
+        [Route("deletar")]
         [ValidateAntiForgeryToken]
         public ActionResult Deletar(int id, IFormCollection collection)
         {
@@ -97,6 +126,17 @@ namespace WKWebApp.Controllers
             {
                 return View();
             }
+        }
+
+        public IActionResult Error(string message)
+        {
+            var viewModel = new ErrorViewModel
+            {
+                Message = message,
+                RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier
+            };
+
+            return View(viewModel);
         }
     }
 }

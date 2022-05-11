@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
@@ -80,7 +81,7 @@ namespace WKWebApp.AppService
             return produtoInserido;
         }
 
-        public async Task<Produto> UpdateProdutoAsync(AtualizaProduto produto)
+        public async Task<Produto> UpdateProdutoAsync(Produto produto)
         {
             var produtoAtualizado = new Produto();
 
@@ -93,10 +94,22 @@ namespace WKWebApp.AppService
 
                 byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-                using (var response = await httpClient.PostAsync("https://localhost:44369/api/produtos/atualizar", byteContent))
+                try
                 {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                    produtoAtualizado = JsonConvert.DeserializeObject<Produto>(apiResponse);
+                    using (var response = await httpClient.PutAsync("https://localhost:44369/api/produtos/atualizar", byteContent))
+                    {
+                        if (response.StatusCode == System.Net.HttpStatusCode.OK)
+                        {
+                            string apiResponse = await response.Content.ReadAsStringAsync();
+                            produtoAtualizado = JsonConvert.DeserializeObject<Produto>(apiResponse);
+                        }
+                        else
+                            throw new Exception(response.StatusCode.ToString());
+                    }
+                }
+                catch (Exception e)
+                {
+                    throw new Exception(e.Message);
                 }
             }
 

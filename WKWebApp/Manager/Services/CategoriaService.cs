@@ -28,7 +28,7 @@ namespace WKWebApp.AppService
             return categoria;
         }
 
-        public async Task<IEnumerable<Categoria>> ObterCategoriasAsync()
+        public async Task<IList<Categoria>> ObterCategoriasAsync()
         {
             var categorias = new List<Categoria>();
 

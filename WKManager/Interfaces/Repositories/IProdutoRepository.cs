@@ -8,8 +8,8 @@ namespace WKManager.Interfaces.Repositories
     {
         Task<IEnumerable<Produto>> GetProdutosAsync();
         Task<Produto> GetProdutoAsync(int id);
-        Task<Produto> InsertProdutoAsync(Produto Produto);
-        Task<Produto> UpdateProdutoAsync(Produto Produto);
+        Task<Produto> InsertProdutoAsync(Produto produto);
+        Task<Produto> UpdateProdutoAsync(Produto produto);
         Task<Produto> DeleteProdutoAsync(int id);
     }
 }

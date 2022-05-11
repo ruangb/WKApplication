@@ -9,8 +9,8 @@ namespace WKManager.Interfaces.Managers
     {
         Task<Produto> GetProdutoAsync(int id);
         Task<IEnumerable<Produto>> GetProdutosAsync();
-        Task<Produto> InsertProdutoAsync(NovoProduto Produto);
-        Task<Produto> UpdateProdutoAsync(AtualizaProduto Produto);
+        Task<Produto> InsertProdutoAsync(NovoProduto produto);
+        Task<Produto> UpdateProdutoAsync(Produto produto);
         Task<Produto> DeleteProdutoAsync(int id);
     }
 }

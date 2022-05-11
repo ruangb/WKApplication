@@ -8,7 +8,7 @@ namespace WKWebApp.Manager.Repositories
     public interface ICategoriaRepository
     {
         Task<Categoria> ObterCategoriaAsync(int id);
-        Task<IEnumerable<Categoria>> ObterCategoriasAsync();
+        Task<IList<Categoria>> ObterCategoriasAsync();
         Task<Categoria> InserirCategoriaAsync(NovaCategoria Categoria);
         Task<Categoria> AtualizarCategoriaAsync(AtualizaCategoria Categoria);
         void DeletarCategoriaAsync(int id);

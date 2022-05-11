@@ -40,7 +40,7 @@ namespace WKWebAPI.Controllers
         /// Retorna um produto pesquisado pelo id
         /// </summary>
         /// <param name="id" example="1">Id do Produto</param>
-        [HttpGet("{id}")]
+        [HttpGet("obter/{id}")]
         [ProducesResponseType(typeof(Produto), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
         public async Task<IActionResult> Obter(int id)
@@ -74,25 +74,25 @@ namespace WKWebAPI.Controllers
         /// Atualiza um Produto
         /// </summary>
         /// <param name="atualizaProduto">Produto a ser atualizado</param>
-        [HttpPut]
+        [HttpPut("atualizar")]
         [ProducesResponseType(typeof(Produto), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Atualizar([FromBody] AtualizaProduto atualizaProduto)
+        public async Task<IActionResult> Atualizar([FromBody] Produto produto)
         {
-            var atualizadProduto = await _produtoManager.UpdateProdutoAsync(atualizaProduto);
+            var produtoAtualizado = await _produtoManager.UpdateProdutoAsync(produto);
 
-            if (atualizadProduto == null)
+            if (produtoAtualizado == null)
                 return NotFound();
 
-            return Ok(atualizadProduto);
+            return Ok(produtoAtualizado);
         }
 
         /// <summary>
         /// Deleta um Produto pelo Id
         /// </summary>
         /// <param name="id">Id do Produto</param>
-        [HttpDelete("{id}")]
+        [HttpDelete("deletar/{id}")]
         [ProducesResponseType(typeof(Produto), StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]

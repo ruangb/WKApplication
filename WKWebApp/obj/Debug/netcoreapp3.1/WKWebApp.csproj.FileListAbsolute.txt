@@ -14,6 +14,7 @@ C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\WKWebA
 C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\WKWebApp.RazorCoreGenerate.cache
 C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Categoria\Index.cshtml.g.cs
 C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Categoria\Inserir.cshtml.g.cs
+C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Produto\Editar.cshtml.g.cs
 C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Produto\Index.cshtml.g.cs
 C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Produto\Inserir.cshtml.g.cs
 C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs

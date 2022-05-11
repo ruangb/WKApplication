@@ -10,7 +10,7 @@ namespace WKWebApp.Manager.Repositories
         Task<Produto> GetProdutoAsync(int id);
         Task<IEnumerable<Produto>> GetProdutosAsync();
         Task<Produto> InsertProdutoAsync(NovoProduto produto);
-        Task<Produto> UpdateProdutoAsync(AtualizaProduto produto);
+        Task<Produto> UpdateProdutoAsync(Produto produto);
         void DeleteProdutoAsync(int id);
     }
 }

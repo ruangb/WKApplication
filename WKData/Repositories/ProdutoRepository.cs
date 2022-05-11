@@ -53,6 +53,8 @@ namespace WKData.Repositories
 
             await _context.SaveChangesAsync();
 
+            produto.Categoria = _categoriaRepository.GetCategoriaAsync(produto.CategoriaId).Result;
+
             return searchedProduto;
         }
 
