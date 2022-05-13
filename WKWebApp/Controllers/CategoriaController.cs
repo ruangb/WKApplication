@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Routing;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics;
@@ -21,8 +22,8 @@ namespace WKWebApp.Controllers
             _categoriaRepository = categoriaRepository;
         }
 
-        [HttpGet("index")]
-        public async Task<ActionResult> IndexAsync()
+        [Route("index")]
+        public async Task<IActionResult> IndexAsync()
         {
             IEnumerable<Categoria> categoria = await _categoriaRepository.GetAsync();
 
@@ -55,7 +56,7 @@ namespace WKWebApp.Controllers
 
             TempData["$AlertMessage$"] = "Registro salvo com sucesso!";
 
-            return RedirectToAction("Inserir");
+            return RedirectToAction("insert");
         }
 
         [Route("edit")]

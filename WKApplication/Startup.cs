@@ -30,7 +30,6 @@ namespace WKWebAPI
 
             services.AddAutoMapperConfig();
 
-
             services.AddScoped<IProdutoRepository, ProdutoRepository>();
             services.AddScoped<ICategoriaRepository, CategoriaRepository>();
 

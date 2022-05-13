@@ -19,7 +19,7 @@ namespace WKWebApp.AppService
 
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync(string.Format("https://localhost:44369/api/categorias/obter/{0}", id)))
+                using (var response = await httpClient.GetAsync(string.Format("https://localhost:44369/api/categorias/get/{0}", id)))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     categoria = JsonConvert.DeserializeObject<Categoria>(apiResponse);
@@ -35,7 +35,7 @@ namespace WKWebApp.AppService
 
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync("https://localhost:44369/api/categorias/listar"))
+                using (var response = await httpClient.GetAsync("https://localhost:44369/api/categorias/list"))
                 {
                     if (response.StatusCode == HttpStatusCode.OK)
                     {
@@ -61,7 +61,7 @@ namespace WKWebApp.AppService
 
                 byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-                using (var response = await httpClient.PostAsync("https://localhost:44369/api/categorias/inserir", byteContent))
+                using (var response = await httpClient.PostAsync("https://localhost:44369/api/categorias/insert", byteContent))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     categoriaInserida = JsonConvert.DeserializeObject<Categoria>(apiResponse);
@@ -86,7 +86,7 @@ namespace WKWebApp.AppService
 
                 try
                 {
-                    using (var response = await httpClient.PutAsync("https://localhost:44369/api/categorias/atualizar", byteContent))
+                    using (var response = await httpClient.PutAsync("https://localhost:44369/api/categorias/update", byteContent))
                     {
                         if (response.StatusCode == System.Net.HttpStatusCode.OK)
                         {
@@ -110,7 +110,7 @@ namespace WKWebApp.AppService
         {
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.DeleteAsync(string.Format("https://localhost:44369/api/categorias/deletar/{0}", id)))
+                using (var response = await httpClient.DeleteAsync(string.Format("https://localhost:44369/api/categorias/delete/{0}", id)))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                 }

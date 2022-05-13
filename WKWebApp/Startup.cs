@@ -23,9 +23,11 @@ namespace WKWebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            //services.AddControllersWithViews();
-            services.AddMvc(options => options.EnableEndpointRouting = false)
-                .SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+            //services.AddControllersWithViews().SetCompatibilityVersion(CompatibilityVersion.Version_3_0);
+
+            //services.AddMvcCore();
+
+            services.AddMvc();
 
             services.AddScoped<IProdutoRepository, ProdutoService>();
             services.AddScoped<ICategoriaRepository, CategoriaService>();
@@ -55,12 +57,13 @@ namespace WKWebApp
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();
+            app.UseRouting();
 
-            app.UseMvc(routes =>
+            app.UseCors();
+
+            app.UseEndpoints(endpoints =>
             {
-                routes.MapRoute(
-                    name: "default",
-                    template: "{controller=Produto}/{action=index}");
+                endpoints.MapControllers();
             });
         }
     }

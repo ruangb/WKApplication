@@ -37,7 +37,7 @@ namespace WKData.Repositories
             await _context.Produto.AddAsync(produto);
             await _context.SaveChangesAsync();
 
-            produto.Categoria = _categoriaRepository.GetCategoriaAsync(produto.CategoriaId).Result;
+            produto.Categoria = _categoriaRepository.GetAsync(produto.CategoriaId).Result;
 
             return produto;
         }
@@ -53,7 +53,7 @@ namespace WKData.Repositories
 
             await _context.SaveChangesAsync();
 
-            produto.Categoria = _categoriaRepository.GetCategoriaAsync(produto.CategoriaId).Result;
+            produto.Categoria = _categoriaRepository.GetAsync(produto.CategoriaId).Result;
 
             return searchedProduto;
         }

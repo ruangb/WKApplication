@@ -13,7 +13,7 @@ using WKWebApp.Models;
 
 namespace WKWebApp.Controllers
 {
-    [Route("[controller]")]
+    [Route("produto")]
     public class ProdutoController : Controller
     {
         private readonly IProdutoRepository _produtoRepository;
@@ -26,7 +26,7 @@ namespace WKWebApp.Controllers
         }
 
         [HttpGet("index")]
-        public async Task<ActionResult> Index()
+        public async Task<IActionResult> Index()
         {
             IEnumerable<Produto> produto = await _produtoRepository.GetProdutosAsync();
 

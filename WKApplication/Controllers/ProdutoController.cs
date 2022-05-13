@@ -10,11 +10,11 @@ namespace WKWebAPI.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class ProdutosController : ControllerBase
+    public class ProdutoController : ControllerBase
     {
         private readonly IProdutoManager _produtoManager;
 
-        public ProdutosController(IProdutoManager produtoManager)
+        public ProdutoController(IProdutoManager produtoManager)
         {
             _produtoManager = produtoManager;
         }

@@ -1,9 +1,9 @@
 ﻿using Microsoft.EntityFrameworkCore;
 using System.Collections.Generic;
 using System.Threading.Tasks;
+using System;
 using WKManager.Interfaces.Repositories;
 using WKDomain.Models;
-using System;
 
 namespace WKData.Repositories
 {
@@ -16,20 +16,20 @@ namespace WKData.Repositories
             _context = context;
         }
 
-        public async Task<IEnumerable<Categoria>> GetCategoriasAsync()
+        public async Task<IEnumerable<Categoria>> GetAsync()
         {
             return await _context.Categoria
                 .AsNoTracking()
                 .ToListAsync();
         }
 
-        public async Task<Categoria> GetCategoriaAsync(int id)
+        public async Task<Categoria> GetAsync(int id)
         {
             return await _context.Categoria
                 .SingleOrDefaultAsync(p => p.Id == id);
         }
 
-        public async Task<Categoria> InsertCategoriaAsync(Categoria Categoria)
+        public async Task<Categoria> InsertAsync(Categoria Categoria)
         {
             await _context.Categoria.AddAsync(Categoria);
             await _context.SaveChangesAsync();
@@ -37,7 +37,7 @@ namespace WKData.Repositories
             return Categoria;
         }
 
-        public async Task<Categoria> UpdateCategoriaAsync(Categoria Categoria)
+        public async Task<Categoria> UpdateAsync(Categoria Categoria)
         {
             var searchedCategoria = await _context.Categoria.FindAsync(Categoria.Id);
 
@@ -51,7 +51,7 @@ namespace WKData.Repositories
             return searchedCategoria;
         }
 
-        public async Task<Categoria> DeleteCategoriaAsync(int id)
+        public async Task<Categoria> DeleteAsync(int id)
         {
             var searchedCategoria = await _context.Categoria.FindAsync(id);
 

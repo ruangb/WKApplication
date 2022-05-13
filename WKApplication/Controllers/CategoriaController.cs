@@ -22,13 +22,13 @@ namespace WKWebAPI.Controllers
         /// <sumamary>
         /// Retorna todos os categorias da base
         /// </sumamary> 
-        [HttpGet("listar")]
+        [HttpGet("list")]
         [ProducesResponseType(typeof(Categoria), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Listar()
+        public async Task<IActionResult> List()
         {
-            var categorias = await _categoriaManager.GetCategoriasAsync();
+            var categorias = await _categoriaManager.GetAsync();
 
             if (categorias.Any())
                 return Ok(categorias);
@@ -41,12 +41,12 @@ namespace WKWebAPI.Controllers
         /// </sumamary>
         /// <param name="id" example="1">Id do Categoria</param>
         /// 
-        [HttpGet("obter/{id}")]
+        [HttpGet("get/{id}")]
         [ProducesResponseType(typeof(Categoria), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Obter(int id)
+        public async Task<IActionResult> Get(int id)
         {
-            var categoria = await _categoriaManager.GetCategoriaAsync(id);
+            var categoria = await _categoriaManager.GetAsync(id);
 
             if (categoria.Id == 0)
                 return NotFound();
@@ -58,30 +58,30 @@ namespace WKWebAPI.Controllers
         /// Insere uma Nova Categoria
         /// </sumamary>
         /// <param name="novaCategoria">Nova Categoria a ser inserido</param>
-        [HttpPost("inserir")]
+        [HttpPost("insert")]
         [ProducesResponseType(typeof(Categoria), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Inserir([FromBody] NovaCategoria novaCategoria)
+        public async Task<IActionResult> Insert([FromBody] NovaCategoria novaCategoria)
         {
             Categoria categoriaInserido;
 
-            categoriaInserido = await _categoriaManager.InsertCategoriaAsync(novaCategoria);
+            categoriaInserido = await _categoriaManager.InsertAsync(novaCategoria);
 
-            return CreatedAtAction(nameof(Obter), new { id = categoriaInserido.Id }, categoriaInserido);
+            return CreatedAtAction(nameof(Get), new { id = categoriaInserido.Id }, categoriaInserido);
         }
 
         /// <sumamary>
         /// Atualiza uma Categoria
         /// </sumamary>
         /// <param name="categoria">Categoria a ser atualizada</param>
-        [HttpPut("atualizar")]
+        [HttpPut("update")]
         [ProducesResponseType(typeof(Categoria), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Atualizar([FromBody] Categoria categoria)
+        public async Task<IActionResult> Update([FromBody] Categoria categoria)
         {
-            var categoriaAtualizada = await _categoriaManager.UpdateCategoriaAsync(categoria);
+            var categoriaAtualizada = await _categoriaManager.UpdateAsync(categoria);
 
             if (categoriaAtualizada == null)
                 return NotFound();
@@ -93,13 +93,13 @@ namespace WKWebAPI.Controllers
         /// Deleta uma Categoria pelo Id
         /// </sumamary>
         /// <param name="id">Id do Categoria</param>
-        [HttpDelete("deletar/{id}")]
+        [HttpDelete("delete/{id}")]
         [ProducesResponseType(typeof(Categoria), StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Deletar(int id)
+        public async Task<IActionResult> Delete(int id)
         {
-            await _categoriaManager.DeleteCategoriaAsync(id);
+            await _categoriaManager.DeleteAsync(id);
 
             return NoContent();
         }

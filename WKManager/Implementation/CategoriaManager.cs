@@ -19,35 +19,35 @@ namespace WKManager.Implementation
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<Categoria>> GetCategoriasAsync()
+        public async Task<IEnumerable<Categoria>> GetAsync()
         {
-            return await _categoriaRepository.GetCategoriasAsync();
+            return await _categoriaRepository.GetAsync();
         }
 
-        public async Task<Categoria> GetCategoriaAsync(int id)
+        public async Task<Categoria> GetAsync(int id)
         {
-            return _mapper.Map<Categoria>(await _categoriaRepository.GetCategoriaAsync(id));
+            return _mapper.Map<Categoria>(await _categoriaRepository.GetAsync(id));
         }
 
-        public async Task<Categoria> InsertCategoriaAsync(NovaCategoria novaCategoria)
+        public async Task<Categoria> InsertAsync(NovaCategoria novaCategoria)
         {
             var categoria = _mapper.Map<Categoria>(novaCategoria);
 
-            categoria = await _categoriaRepository.InsertCategoriaAsync(categoria);
+            categoria = await _categoriaRepository.InsertAsync(categoria);
 
             return _mapper.Map<Categoria>(categoria);
         }
 
-        public async Task<Categoria> UpdateCategoriaAsync(Categoria categoria)
+        public async Task<Categoria> UpdateAsync(Categoria categoria)
         {
-            categoria = await _categoriaRepository.UpdateCategoriaAsync(categoria);
+            categoria = await _categoriaRepository.UpdateAsync(categoria);
 
             return _mapper.Map<Categoria>(categoria);
         }
 
-        public async Task<Categoria> DeleteCategoriaAsync(int id)
+        public async Task<Categoria> DeleteAsync(int id)
         {
-            var categoria = await _categoriaRepository.DeleteCategoriaAsync(id);
+            var categoria = await _categoriaRepository.DeleteAsync(id);
 
             return _mapper.Map<Categoria>(categoria);
         }
