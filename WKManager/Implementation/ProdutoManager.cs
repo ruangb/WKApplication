@@ -19,35 +19,35 @@ namespace WKManager.Implementation
             _mapper = mapper;
         }
 
-        public async Task<IEnumerable<Produto>> GetProdutosAsync()
+        public async Task<IEnumerable<Produto>> GetAsync()
         {
-            return _mapper.Map<IEnumerable<Produto>>(await _produtoRepository.GetProdutosAsync());
+            return _mapper.Map<IEnumerable<Produto>>(await _produtoRepository.GetAsync());
         }
 
-        public async Task<Produto> GetProdutoAsync(int id)
+        public async Task<Produto> GetAsync(int id)
         {
-            return _mapper.Map<Produto>(await _produtoRepository.GetProdutoAsync(id));
+            return _mapper.Map<Produto>(await _produtoRepository.GetAsync(id));
         }
 
-        public async Task<Produto> InsertProdutoAsync(NovoProduto novoProduto)
+        public async Task<Produto> InsertAsync(NovoProduto novoProduto)
         {
             var produto = _mapper.Map<Produto>(novoProduto);
 
-            produto = await _produtoRepository.InsertProdutoAsync(produto);
+            produto = await _produtoRepository.InsertAsync(produto);
 
             return _mapper.Map<Produto>(produto);
         }
 
-        public async Task<Produto> UpdateProdutoAsync(Produto produto)
+        public async Task<Produto> UpdateAsync(Produto produto)
         {
-            var produtoAtualizado = await _produtoRepository.UpdateProdutoAsync(produto);
+            var produtoAtualizado = await _produtoRepository.UpdateAsync(produto);
 
             return _mapper.Map<Produto>(produtoAtualizado);
         }
 
-        public async Task<Produto> DeleteProdutoAsync(int id)
+        public async Task<Produto> DeleteAsync(int id)
         {
-            var cliente = await _produtoRepository.DeleteProdutoAsync(id);
+            var cliente = await _produtoRepository.DeleteAsync(id);
 
             return _mapper.Map<Produto>(cliente);
         }

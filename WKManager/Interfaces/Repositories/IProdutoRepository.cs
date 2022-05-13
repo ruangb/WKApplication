@@ -6,10 +6,10 @@ namespace WKManager.Interfaces.Repositories
 {
     public interface IProdutoRepository
     {
-        Task<IEnumerable<Produto>> GetProdutosAsync();
-        Task<Produto> GetProdutoAsync(int id);
-        Task<Produto> InsertProdutoAsync(Produto produto);
-        Task<Produto> UpdateProdutoAsync(Produto produto);
-        Task<Produto> DeleteProdutoAsync(int id);
+        Task<IEnumerable<Produto>> GetAsync();
+        Task<Produto> GetAsync(int id);
+        Task<Produto> InsertAsync(Produto produto);
+        Task<Produto> UpdateAsync(Produto produto);
+        Task<Produto> DeleteAsync(int id);
     }
 }

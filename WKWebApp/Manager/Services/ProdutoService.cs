@@ -12,24 +12,24 @@ namespace WKWebApp.AppService
 {
     public class ProdutoService : IProdutoRepository
     {
-        public async void DeleteProdutoAsync(int id)
+        public async void DeleteAsync(int id)
         {
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.DeleteAsync(string.Format("https://localhost:44369/api/produtos/deletar/{0}", id)))
+                using (var response = await httpClient.DeleteAsync(string.Format("https://localhost:44369/api/produto/delete/{0}", id)))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                 }
             }
         }
 
-        public async Task<Produto> GetProdutoAsync(int id)
+        public async Task<Produto> GetAsync(int id)
         {
             var produto = new Produto();
 
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync(string.Format("https://localhost:44369/api/produtos/obter/{0}", id)))
+                using (var response = await httpClient.GetAsync(string.Format("https://localhost:44369/api/produto/get/{0}", id)))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     produto = JsonConvert.DeserializeObject<Produto>(apiResponse);
@@ -39,13 +39,13 @@ namespace WKWebApp.AppService
             return produto;
         }
 
-        public async Task<IEnumerable<Produto>> GetProdutosAsync()
+        public async Task<IEnumerable<Produto>> GetAsync()
         {
             var produtos = new List<Produto>();
 
             using (var httpClient = new HttpClient())
             {
-                using (var response = await httpClient.GetAsync("https://localhost:44369/api/produtos/listar"))
+                using (var response = await httpClient.GetAsync("https://localhost:44369/api/produto/list"))
                 {
                     if (response.StatusCode == System.Net.HttpStatusCode.OK)
                     {
@@ -58,7 +58,7 @@ namespace WKWebApp.AppService
             return produtos;
         }
 
-        public async Task<Produto> InsertProdutoAsync(NovoProduto produto)
+        public async Task<Produto> InsertAsync(NovoProduto produto)
         {
             var produtoInserido = new Produto();
 
@@ -71,7 +71,7 @@ namespace WKWebApp.AppService
 
                 byteContent.Headers.ContentType = new MediaTypeHeaderValue("application/json");
 
-                using (var response = await httpClient.PostAsync("https://localhost:44369/api/produtos/inserir", byteContent))
+                using (var response = await httpClient.PostAsync("https://localhost:44369/api/produto/insert", byteContent))
                 {
                     string apiResponse = await response.Content.ReadAsStringAsync();
                     produtoInserido = JsonConvert.DeserializeObject<Produto>(apiResponse);
@@ -81,7 +81,7 @@ namespace WKWebApp.AppService
             return produtoInserido;
         }
 
-        public async Task<Produto> UpdateProdutoAsync(Produto produto)
+        public async Task<Produto> UpdateAsync(Produto produto)
         {
             var produtoAtualizado = new Produto();
 
@@ -96,7 +96,7 @@ namespace WKWebApp.AppService
 
                 try
                 {
-                    using (var response = await httpClient.PutAsync("https://localhost:44369/api/produtos/atualizar", byteContent))
+                    using (var response = await httpClient.PutAsync("https://localhost:44369/api/produto/update", byteContent))
                     {
                         if (response.StatusCode == System.Net.HttpStatusCode.OK)
                         {

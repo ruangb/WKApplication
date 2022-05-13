@@ -17,7 +17,7 @@ namespace WKData.Repositories
             _categoriaRepository = categoriaRepository;
         }
 
-        public async Task<IEnumerable<Produto>> GetProdutosAsync()
+        public async Task<IEnumerable<Produto>> GetAsync()
         {
             return await _context.Produto
                 .Include(p => p.Categoria)
@@ -25,14 +25,14 @@ namespace WKData.Repositories
                 .ToListAsync();
         }
 
-        public async Task<Produto> GetProdutoAsync(int id)
+        public async Task<Produto> GetAsync(int id)
         {
             return await _context.Produto
                 .Include(p => p.Categoria)
                 .SingleOrDefaultAsync(p => p.Id == id);
         }
 
-        public async Task<Produto> InsertProdutoAsync(Produto produto)
+        public async Task<Produto> InsertAsync(Produto produto)
         {
             await _context.Produto.AddAsync(produto);
             await _context.SaveChangesAsync();
@@ -42,7 +42,7 @@ namespace WKData.Repositories
             return produto;
         }
 
-        public async Task<Produto> UpdateProdutoAsync(Produto produto)
+        public async Task<Produto> UpdateAsync(Produto produto)
         {
             var searchedProduto = await _context.Produto.FindAsync(produto.Id);
 
@@ -58,7 +58,7 @@ namespace WKData.Repositories
             return searchedProduto;
         }
 
-        public async Task<Produto> DeleteProdutoAsync(int id)
+        public async Task<Produto> DeleteAsync(int id)
         {
             var searchedProduto = await _context.Produto.FindAsync(id);
 

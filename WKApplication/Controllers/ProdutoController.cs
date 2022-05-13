@@ -22,13 +22,13 @@ namespace WKWebAPI.Controllers
         /// <summary>
         /// Retorna todos os produtos da base
         /// </summary> 
-        [HttpGet("listar")]
+        [HttpGet("list")]
         [ProducesResponseType(typeof(Produto), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Listar()
+        public async Task<IActionResult> ListAsync()
         {
-            var produtos = await _produtoManager.GetProdutosAsync();
+            var produtos = await _produtoManager.GetAsync();
 
             if (produtos.Any())
                 return Ok(produtos);
@@ -40,12 +40,12 @@ namespace WKWebAPI.Controllers
         /// Retorna um produto pesquisado pelo id
         /// </summary>
         /// <param name="id" example="1">Id do Produto</param>
-        [HttpGet("obter/{id}")]
+        [HttpGet("get/{id}")]
         [ProducesResponseType(typeof(Produto), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Obter(int id)
+        public async Task<IActionResult> GetAsync(int id)
         {
-            var produto = await _produtoManager.GetProdutoAsync(id);
+            var produto = await _produtoManager.GetAsync(id);
 
             if (produto.Id == 0)
                 return NotFound();
@@ -57,30 +57,30 @@ namespace WKWebAPI.Controllers
         /// Insere um Novo Produto
         /// </summary>
         /// <param name="novoProduto">Novo Produto a ser inserido</param>
-        [HttpPost("inserir")]
+        [HttpPost("insert")]
         [ProducesResponseType(typeof(Produto), StatusCodes.Status201Created)]
         [ProducesResponseType(typeof(ValidationProblemDetails), StatusCodes.Status400BadRequest)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Inserir([FromBody] NovoProduto novoProduto)
+        public async Task<IActionResult> InsertAsync([FromBody] NovoProduto novoProduto)
         {
             Produto produtoInserido;
 
-            produtoInserido = await _produtoManager.InsertProdutoAsync(novoProduto);
+            produtoInserido = await _produtoManager.InsertAsync(novoProduto);
 
-            return CreatedAtAction(nameof(Obter), new { id = produtoInserido.Id }, produtoInserido);
+            return CreatedAtAction(nameof(GetAsync), new { id = produtoInserido.Id }, produtoInserido);
         }
 
         /// <summary>
         /// Atualiza um Produto
         /// </summary>
         /// <param name="produto">Produto a ser atualizado</param>
-        [HttpPut("atualizar")]
+        [HttpPut("update")]
         [ProducesResponseType(typeof(Produto), StatusCodes.Status200OK)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Atualizar([FromBody] Produto produto)
+        public async Task<IActionResult> UpdateAsync([FromBody] Produto produto)
         {
-            var produtoAtualizado = await _produtoManager.UpdateProdutoAsync(produto);
+            var produtoAtualizado = await _produtoManager.UpdateAsync(produto);
 
             if (produtoAtualizado == null)
                 return NotFound();
@@ -92,13 +92,13 @@ namespace WKWebAPI.Controllers
         /// Deleta um Produto pelo Id
         /// </summary>
         /// <param name="id">Id do Produto</param>
-        [HttpDelete("deletar/{id}")]
+        [HttpDelete("delete/{id}")]
         [ProducesResponseType(typeof(Produto), StatusCodes.Status204NoContent)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status404NotFound)]
         [ProducesResponseType(typeof(ProblemDetails), StatusCodes.Status500InternalServerError)]
-        public async Task<IActionResult> Deletar(int id)
+        public async Task<IActionResult> DeleteAsync(int id)
         {
-            await _produtoManager.DeleteProdutoAsync(id);
+            await _produtoManager.DeleteAsync(id);
 
             return NoContent();
         }

@@ -7,10 +7,10 @@ namespace WKManager.Interfaces.Managers
 {
     public interface IProdutoManager
     {
-        Task<Produto> GetProdutoAsync(int id);
-        Task<IEnumerable<Produto>> GetProdutosAsync();
-        Task<Produto> InsertProdutoAsync(NovoProduto produto);
-        Task<Produto> UpdateProdutoAsync(Produto produto);
-        Task<Produto> DeleteProdutoAsync(int id);
+        Task<Produto> GetAsync(int id);
+        Task<IEnumerable<Produto>> GetAsync();
+        Task<Produto> InsertAsync(NovoProduto produto);
+        Task<Produto> UpdateAsync(Produto produto);
+        Task<Produto> DeleteAsync(int id);
     }
 }

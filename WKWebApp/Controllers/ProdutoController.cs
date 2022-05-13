@@ -13,7 +13,7 @@ using WKWebApp.Models;
 
 namespace WKWebApp.Controllers
 {
-    [Route("produto")]
+    [Route("[controller]")]
     public class ProdutoController : Controller
     {
         private readonly IProdutoRepository _produtoRepository;
@@ -26,21 +26,21 @@ namespace WKWebApp.Controllers
         }
 
         [HttpGet("index")]
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> IndexAsync()
         {
-            IEnumerable<Produto> produto = await _produtoRepository.GetProdutosAsync();
+            IEnumerable<Produto> produto = await _produtoRepository.GetAsync();
 
             return View(produto);
         }
 
-        [HttpGet("detalhes")]
-        public ActionResult Detalhes(int id)
+        [HttpGet("details")]
+        public IActionResult Details(int id)
         {
             return View();
         }
 
-        [HttpGet("inserir")]
-        public ActionResult Inserir()
+        [HttpGet("insert")]
+        public IActionResult Insert()
         {
             var categorias = _categoriaRepository.GetAsync().Result;
 
@@ -50,27 +50,27 @@ namespace WKWebApp.Controllers
         }
 
         [HttpPost]
-        [Route("inserir")]
+        [Route("insert")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> InserirAsync(NovoProduto produto)
+        public async Task<IActionResult> InsertAsync(NovoProduto produto)
         {
             if (!ModelState.IsValid)
                 return View(produto);
 
-            await _produtoRepository.InsertProdutoAsync(produto);
+            await _produtoRepository.InsertAsync(produto);
 
             TempData["$AlertMessage$"] = "Registro salvo com sucesso!";
 
-            return RedirectToAction("Inserir");
+            return RedirectToAction("Insert");
         }
 
-        [Route("editar")]
-        public async Task<ActionResult> EditarAsync(int? id)
+        [Route("edit")]
+        public async Task<IActionResult> EditAsync(int? id)
         {
             if (id == null)
                 return RedirectToAction(nameof(Error), new { message = "Id not found" });
 
-            var produto = await _produtoRepository.GetProdutoAsync(id.Value);
+            var produto = await _produtoRepository.GetAsync(id.Value);
 
             if (produto == null)
                 return RedirectToAction(nameof(Error), new { message = "Id not found" });
@@ -85,9 +85,9 @@ namespace WKWebApp.Controllers
         }
 
         [HttpPost]
-        [Route("editar")]
+        [Route("edit")]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> EditarAsync(int id, Produto produto)
+        public async Task<IActionResult> EditAsync(int id, Produto produto)
         {
             if (!ModelState.IsValid)
                 return View(produto);
@@ -97,7 +97,7 @@ namespace WKWebApp.Controllers
 
             try
             {
-                var result = await _produtoRepository.UpdateProdutoAsync(produto);
+                var result = await _produtoRepository.UpdateAsync(produto);
 
                 return RedirectToAction(nameof(Index));
             }
@@ -107,26 +107,28 @@ namespace WKWebApp.Controllers
             }
         }
 
-        [Route("deletar")]
-        public ActionResult Deletar(int id)
+        [Route("delete")]
+        public IActionResult Delete(int id)
         {
             return View();
         }
 
         [HttpPost]
-        [Route("deletar")]
+        [Route("delete")]
         [ValidateAntiForgeryToken]
-        public ActionResult Deletar(int id, IFormCollection collection)
+        public async Task<IActionResult> DeleteAsync(int id)
         {
             try
             {
+                _produtoRepository.DeleteAsync(id);
                 return RedirectToAction(nameof(Index));
             }
-            catch
+            catch (Exception e)
             {
-                return View();
+                return RedirectToAction(nameof(Error), new { message = e.Message });
             }
         }
+
 
         public IActionResult Error(string message)
         {
