@@ -63,12 +63,12 @@ namespace WKWebApp.Controllers
         public async Task<ActionResult> EditAsync(int? id)
         {
             if (id == null)
-                return RedirectToAction(nameof(Error), new { message = "Id not found" });
+                return RedirectToAction(nameof(Error), new { message = "Id não encontrado" });
 
             var categoria = await _categoriaRepository.GetAsync(id.Value);
 
             if (categoria == null)
-                return RedirectToAction(nameof(Error), new { message = "Id not found" });
+                return RedirectToAction(nameof(Error), new { message = "Id não encontrado" });
 
             return View(categoria);
         }
@@ -107,7 +107,7 @@ namespace WKWebApp.Controllers
                     return View(obj);
             }
 
-            return RedirectToAction(nameof(Error), new { message = "Id not provided" });
+            return RedirectToAction(nameof(Error), new { message = "Id não fornecido" });
         }
 
         [HttpPost]

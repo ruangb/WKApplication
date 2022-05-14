@@ -34,13 +34,14 @@ namespace WKWebApp.Controllers
         }
 
         [HttpGet("details")]
-        public IActionResult Details(int id)
+        public async Task<ActionResult> DetailsAsync(int id)
         {
-            return View();
+            var produto = await _produtoRepository.GetAsync(id);
+            return View(produto);
         }
 
         [HttpGet("insert")]
-        public IActionResult Insert()
+        public IActionResult InsertAsync()
         {
             var categorias = _categoriaRepository.GetAsync().Result;
 
@@ -49,8 +50,7 @@ namespace WKWebApp.Controllers
             return View();
         }
 
-        [HttpPost]
-        [Route("insert")]
+        [HttpPost("insert")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> InsertAsync(NovoProduto produto)
         {
@@ -64,28 +64,27 @@ namespace WKWebApp.Controllers
             return RedirectToAction("Insert");
         }
 
-        [Route("edit")]
+        [HttpGet("edit")]
         public async Task<IActionResult> EditAsync(int? id)
         {
             if (id == null)
-                return RedirectToAction(nameof(Error), new { message = "Id not found" });
+                return RedirectToAction(nameof(Error), new { message = "Id não encontrado" });
 
             var produto = await _produtoRepository.GetAsync(id.Value);
 
             if (produto == null)
-                return RedirectToAction(nameof(Error), new { message = "Id not found" });
+                return RedirectToAction(nameof(Error), new { message = "Id não encontrado" });
 
             var categorias = _categoriaRepository.GetAsync().Result;
 
-            categorias.Add(new Categoria() { Id = 0, Nome = "Selecione uma opção" });
+            categorias.Add(new Categoria() { Id = null, Nome = "Selecione uma opção" });
 
             ViewBag.Categorias = new SelectList(categorias, "Id", "Nome", categorias.Where(x => x.Id == produto.CategoriaId).FirstOrDefault());
 
             return View(produto);
         }
 
-        [HttpPost]
-        [Route("edit")]
+        [HttpPost("edit")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> EditAsync(int id, Produto produto)
         {
@@ -107,14 +106,21 @@ namespace WKWebApp.Controllers
             }
         }
 
-        [Route("delete")]
-        public IActionResult Delete(int id)
+        [HttpGet("delete")]
+        public async Task<IActionResult> DeleteAsync(int? id)
         {
-            return View();
+            if (id != null)
+            {
+                var obj = await _produtoRepository.GetAsync(id.Value);
+
+                if (obj != null)
+                    return View(obj);
+            }
+
+            return RedirectToAction(nameof(Error), new { message = "Id não fornecido" });
         }
 
-        [HttpPost]
-        [Route("delete")]
+        [HttpPost("delete")]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> DeleteAsync(int id)
         {
@@ -128,7 +134,6 @@ namespace WKWebApp.Controllers
                 return RedirectToAction(nameof(Error), new { message = e.Message });
             }
         }
-
 
         public IActionResult Error(string message)
         {

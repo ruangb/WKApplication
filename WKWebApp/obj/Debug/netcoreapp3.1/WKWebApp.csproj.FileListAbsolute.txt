@@ -64,9 +64,9 @@ C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\
 C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Categoria\Insert.cshtml.g.cs
 C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Produto\Delete.cshtml.g.cs
 C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Produto\Details.cshtml.g.cs
-C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Produto\Editar.cshtml.g.cs
+C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Produto\Edit.cshtml.g.cs
 C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Produto\Index.cshtml.g.cs
-C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Produto\Inserir.cshtml.g.cs
+C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Produto\Insert.cshtml.g.cs
 C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\Error.cshtml.g.cs
 C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_Layout.cshtml.g.cs
 C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\Razor\Views\Shared\_ValidationScriptsPartial.cshtml.g.cs

@@ -5,7 +5,7 @@ namespace WKDomain.Models
 {
     public class Categoria
     {
-        public int Id { get; set; }
+        public int? Id { get; set; }
 
         [Required(ErrorMessage = "{0} obrigatório")]
         [Column(TypeName = "varchar(50)")]

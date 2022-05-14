@@ -13,6 +13,7 @@ namespace WKDomain.Models
 
         [Required(ErrorMessage = "{0} obrigatório")]
         [DisplayFormat(DataFormatString = "{0:N2}")]
+        [Range(0, double.MaxValue, ErrorMessage = "Por favor informe um preço válido.")]
         [Column(TypeName = "decimal(7,2)")]
         [Display(Name = "Preço")]
         public decimal Preco { get; set; }
