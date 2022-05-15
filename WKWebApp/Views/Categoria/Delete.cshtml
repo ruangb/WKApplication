@@ -10,18 +10,23 @@
 
 <hr />
 <div class="row">
-    <div class="col-md-4 col-md-offset-4">
-        <div class="form-group">
-            @Html.DisplayNameFor(model => model.Nome)
-            @Html.DisplayFor(model => model.Nome)
-        </div>
+    <div class="col-md-6 offset-3">
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.Nome)
+            </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Nome)
+            </dd>
+        </dl>
+        <br />
         <form asp-action="delete">
             <input type="hidden" asp-for="Id" />
             <input type="submit" value="Deletar" class="btn btn-danger btn-sm" onclick="return confirm('Deseja realmente excluir o registro?');" />
         </form>
     </div>
 </div>
-
+<br />
 <div>
     <a asp-action="Index">Voltar para a lista</a>
 </div>

@@ -47,9 +47,9 @@ namespace WKManager.Implementation
 
         public async Task<Produto> DeleteAsync(int id)
         {
-            var cliente = await _produtoRepository.DeleteAsync(id);
+            var produto = await _produtoRepository.DeleteAsync(id);
 
-            return _mapper.Map<Produto>(cliente);
+            return _mapper.Map<Produto>(produto);
         }
     }
 }

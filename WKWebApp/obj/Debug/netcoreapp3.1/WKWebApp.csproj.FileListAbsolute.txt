@@ -79,3 +79,4 @@ C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\WKWebA
 C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\WKWebApp.dll
 C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\WKWebApp.pdb
 C:\Users\Ruan\source\repos\WKApplication\WKWebApp\obj\Debug\netcoreapp3.1\WKWebApp.genruntimeconfig.cache
+C:\Users\Ruan\source\repos\WKApplication\WKWebApp\bin\Debug\netcoreapp3.1\Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore.dll

@@ -11,6 +11,6 @@ namespace WKWebApp.Manager.Repositories
         Task<IList<Categoria>> GetAsync();
         Task<Categoria> InsertAsync(NovaCategoria Categoria);
         Task<Categoria> UpdateAsync(Categoria Categoria);
-        void DeleteAsync(int id);
+        void Delete(int id);
     }
 }

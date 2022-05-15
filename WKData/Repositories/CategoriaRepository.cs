@@ -66,7 +66,7 @@ namespace WKData.Repositories
             }
             catch (Exception e)
             {
-                throw new Exception(e.Message);
+                throw new Exception(e.InnerException.Message);
             }
 
             return removedCategoria.Entity;

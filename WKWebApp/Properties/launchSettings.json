@@ -13,14 +13,14 @@
       "launchBrowser": true,
       "launchUrl": "produto/index",
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Production"
       }
     },
     "WKWebApp": {
       "commandName": "Project",
       "launchBrowser": true,
       "environmentVariables": {
-        "ASPNETCORE_ENVIRONMENT": "Development"
+        "ASPNETCORE_ENVIRONMENT": "Production"
       },
       "applicationUrl": "https://localhost:5001;http://localhost:5000"
     }

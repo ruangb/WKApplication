@@ -122,17 +122,18 @@ namespace WKWebApp.Controllers
 
         [HttpPost("delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteAsync(int id)
+        public IActionResult Delete(int id)
         {
             try
             {
-                _produtoRepository.DeleteAsync(id);
-                return RedirectToAction(nameof(Index));
+                _produtoRepository.Delete(id);
             }
             catch (Exception e)
             {
                 return RedirectToAction(nameof(Error), new { message = e.Message });
             }
+
+            return RedirectToAction("index");
         }
 
         public IActionResult Error(string message)

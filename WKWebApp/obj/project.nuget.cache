@@ -1,10 +1,13 @@
 {
   "version": 2,
-  "dgSpecHash": "M9DFGOI5z8XmxkmoqyZadhlNQW47iMI2j7zVdOmR2jJoMTdt6ej3RNIusiocnjub4I8orJaCchwx6yIIeuZkiw==",
+  "dgSpecHash": "l222ZUMePNjE9zoH+I2lwEP7sUd+o2LMUbrI0HuVoy2RB6bGdE8FMsRkoApPNHmAfurVZOfkU7VLsaFF2dnTSA==",
   "success": true,
   "projectFilePath": "C:\\Users\\Ruan\\source\\repos\\WKApplication\\WKWebApp\\WKWebApp.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Ruan\\.nuget\\packages\\automapper\\10.1.1\\automapper.10.1.1.nupkg.sha512",
+    "C:\\Users\\Ruan\\.nuget\\packages\\microsoft.aspnetcore.diagnostics.entityframeworkcore\\2.1.1\\microsoft.aspnetcore.diagnostics.entityframeworkcore.2.1.1.nupkg.sha512",
+    "C:\\Users\\Ruan\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.1.1\\microsoft.aspnetcore.http.abstractions.2.1.1.nupkg.sha512",
+    "C:\\Users\\Ruan\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.1.1\\microsoft.aspnetcore.http.features.2.1.1.nupkg.sha512",
     "C:\\Users\\Ruan\\.nuget\\packages\\microsoft.aspnetcore.razor.language\\2.1.1\\microsoft.aspnetcore.razor.language.2.1.1.nupkg.sha512",
     "C:\\Users\\Ruan\\.nuget\\packages\\microsoft.codeanalysis.analyzers\\1.1.0\\microsoft.codeanalysis.analyzers.1.1.0.nupkg.sha512",
     "C:\\Users\\Ruan\\.nuget\\packages\\microsoft.codeanalysis.common\\2.8.0\\microsoft.codeanalysis.common.2.8.0.nupkg.sha512",
@@ -129,6 +132,7 @@
     "C:\\Users\\Ruan\\.nuget\\packages\\system.text.encoding\\4.3.0\\system.text.encoding.4.3.0.nupkg.sha512",
     "C:\\Users\\Ruan\\.nuget\\packages\\system.text.encoding.codepages\\4.3.0\\system.text.encoding.codepages.4.3.0.nupkg.sha512",
     "C:\\Users\\Ruan\\.nuget\\packages\\system.text.encoding.extensions\\4.3.0\\system.text.encoding.extensions.4.3.0.nupkg.sha512",
+    "C:\\Users\\Ruan\\.nuget\\packages\\system.text.encodings.web\\4.5.0\\system.text.encodings.web.4.5.0.nupkg.sha512",
     "C:\\Users\\Ruan\\.nuget\\packages\\system.text.regularexpressions\\4.3.0\\system.text.regularexpressions.4.3.0.nupkg.sha512",
     "C:\\Users\\Ruan\\.nuget\\packages\\system.threading\\4.3.0\\system.threading.4.3.0.nupkg.sha512",
     "C:\\Users\\Ruan\\.nuget\\packages\\system.threading.tasks\\4.3.0\\system.threading.tasks.4.3.0.nupkg.sha512",

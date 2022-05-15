@@ -40,15 +40,7 @@ namespace WKWebApp
                 SupportedUICultures = supportedCultures
             });
 
-            if (env.IsDevelopment())
-            {
-                app.UseDeveloperExceptionPage();
-            }
-            else
-            {
-                app.UseExceptionHandler("/Home/Error");
-                app.UseHsts();
-            }
+            app.UseDatabaseErrorPage();
             app.UseHttpsRedirection();
             app.UseStaticFiles();
             app.UseCookiePolicy();

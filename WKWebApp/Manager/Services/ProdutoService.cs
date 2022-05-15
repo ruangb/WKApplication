@@ -12,17 +12,6 @@ namespace WKWebApp.AppService
 {
     public class ProdutoService : IProdutoRepository
     {
-        public async void DeleteAsync(int id)
-        {
-            using (var httpClient = new HttpClient())
-            {
-                using (var response = await httpClient.DeleteAsync(string.Format("https://localhost:44369/api/produto/delete/{0}", id)))
-                {
-                    string apiResponse = await response.Content.ReadAsStringAsync();
-                }
-            }
-        }
-
         public async Task<Produto> GetAsync(int id)
         {
             var produto = new Produto();
@@ -114,6 +103,18 @@ namespace WKWebApp.AppService
             }
 
             return produtoAtualizado;
+        }
+
+        public void Delete(int id)
+        {
+            using (var httpClient = new HttpClient())
+            {
+                using (var response = httpClient.DeleteAsync(string.Format("https://localhost:44369/api/produto/delete/{0}", id)))
+                {
+                    if (response.Result.StatusCode != System.Net.HttpStatusCode.OK)
+                        throw new Exception(response.Result.StatusCode.ToString());
+                }
+            }
         }
     }
 }

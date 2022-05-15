@@ -22,7 +22,7 @@ namespace WKWebApp.Controllers
             _categoriaRepository = categoriaRepository;
         }
 
-        [Route("index")]
+        [HttpGet("index")]
         public async Task<IActionResult> IndexAsync()
         {
             IEnumerable<Categoria> categoria = await _categoriaRepository.GetAsync();
@@ -44,8 +44,7 @@ namespace WKWebApp.Controllers
             return View();
         }
 
-        [HttpPost]
-        [Route("insert")]
+        [HttpPost("insert")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> InsertAsync(NovaCategoria categoria)
         {
@@ -59,7 +58,7 @@ namespace WKWebApp.Controllers
             return RedirectToAction("insert");
         }
 
-        [Route("edit")]
+        [HttpGet("edit")]
         public async Task<ActionResult> EditAsync(int? id)
         {
             if (id == null)
@@ -73,8 +72,7 @@ namespace WKWebApp.Controllers
             return View(categoria);
         }
 
-        [HttpPost]
-        [Route("edit")]
+        [HttpPost("edit")]
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> EditAsync(int id, Categoria categoria)
         {
@@ -96,7 +94,7 @@ namespace WKWebApp.Controllers
             }
         }
 
-        [Route("delete")]
+        [HttpGet("delete")]
         public async Task<IActionResult> DeleteAsync(int? id)
         {
             if (id != null)
@@ -110,20 +108,20 @@ namespace WKWebApp.Controllers
             return RedirectToAction(nameof(Error), new { message = "Id não fornecido" });
         }
 
-        [HttpPost]
-        [Route("delete")]
+        [HttpPost("delete")]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> DeleteAsync(int id)
+        public IActionResult Delete(int id)
         {
             try
             {
-                _categoriaRepository.DeleteAsync(id);
-                return RedirectToAction(nameof(Index));
+                _categoriaRepository.Delete(id);
             }
             catch (Exception e)
             {
                 return RedirectToAction(nameof(Error), new { message = e.Message });
             }
+
+            return RedirectToAction("index");
         }
 
         public IActionResult Error(string message)
